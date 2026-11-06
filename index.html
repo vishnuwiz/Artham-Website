@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Artham</title>
-<meta name="description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, and keep every category inside its limit.">
+<meta name="description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, schedule recurring transactions and keep every category inside its limit.">
 <meta name="theme-color" content="#06181b">
 <meta property="og:title" content="Artham">
-<meta property="og:description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, and keep every category inside its limit.">
+<meta property="og:description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, schedule recurring transactions and keep every category inside its limit.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='11' fill='%23112b34'/%3E%3Crect x='8' y='10' width='20' height='17' rx='4' fill='%235ee6b0'/%3E%3Crect x='17' y='15' width='11' height='7' rx='3' fill='%23112b34'/%3E%3Ccircle cx='22.2' cy='18.5' r='1.5' fill='%235ee6b0'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,6 +92,10 @@ p{margin:0}
 .o6{background:var(--orb-b);top:3300px;right:-200px}
 .o7{background:var(--orb-c);top:4100px;left:-160px;width:min(480px,80vw)}
 .o8{background:var(--orb-a);top:4900px;right:-180px}
+.o9{background:var(--orb-d);top:5800px;left:-200px;width:min(480px,80vw)}
+.o10{background:var(--orb-b);top:6700px;right:-200px}
+.o11{background:var(--orb-c);top:7600px;left:-180px}
+.o12{background:var(--orb-a);top:8500px;right:-180px}
 
 .wrap{position:relative;z-index:1;max-width:1180px;margin-inline:auto}
 
@@ -152,6 +156,7 @@ h1 em{font-style:normal;background:linear-gradient(95deg,var(--g1),var(--g2));-w
 .chip small{color:var(--muted);font-size:.74rem;display:block}
 .chip.c1{left:0;top:3%}
 .chip.c2{right:0;bottom:3%}
+.cluster .chip .ico{display:none}
 .chip .ico{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 22%,transparent);color:var(--accent-text);font-weight:700}
 @media (max-width:900px){.hero{grid-template-columns:1fr;padding-block:40px 64px;gap:48px}}
 @media (max-width:480px){.chip{padding:8px 12px}.chip b{font-size:1rem}.chip .ico{display:none}}
@@ -215,6 +220,193 @@ footer{padding-block:12px 36px}
 .foot .brand svg{width:28px;height:28px}
 .foot .brand span{font-family:var(--font-ml);font-weight:600;font-size:.95rem;color:var(--muted)}
 
+/* ---------- additions: new sections + hover polish ---------- */
+section[id]{scroll-margin-top:96px}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.sr{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.sr-text{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.sec-sub{color:var(--muted);font-size:1.1rem;max-width:36em}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;padding:2px 7px;border-radius:8px;background:color-mix(in srgb,var(--fg) 10%,transparent)}
+.fine{font-size:.9rem;color:var(--muted)}
+
+/* pointer spotlight */
+[data-glow]{position:relative;isolation:isolate}
+[data-glow]::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--accent) 30%,transparent),transparent 62%)}
+[data-glow]:hover::before{opacity:1}
+
+/* nav + buttons + brand */
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:var(--accent);scale:0 1;transform-origin:left;transition:scale .25s ease}
+.nav-links a:hover::after,.nav-links a:focus-visible::after{scale:1 1}
+.brand svg{transition:rotate .4s cubic-bezier(.3,1.6,.5,1)}
+.brand:hover svg{rotate:-10deg}
+.btn-main{position:relative;overflow:hidden}
+.btn-main::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.5) 50%,transparent 70%);translate:-120% 0;transition:translate .7s ease}
+.btn-main:hover::after{translate:120% 0}
+.btn-glass:hover{border-color:var(--edge-hi);box-shadow:inset 0 1px 0 var(--edge-hi),0 18px 40px -18px var(--accent)}
+.btn svg{transition:translate .25s}
+.btn:hover svg{translate:3px 0}
+
+/* hero announcement */
+.hero-pills{display:flex;flex-wrap:wrap;gap:10px}
+.announce{text-decoration:none;transition:transform .25s,border-color .25s}
+.announce:hover{transform:translateY(-2px);border-color:var(--edge-hi)}
+.announce .tag{padding:3px 9px;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase}
+.announce svg{width:14px;height:14px;transition:translate .25s}
+.announce:hover svg{translate:4px 0}
+
+/* feature panels: gentle 3D tilt */
+.feat-vis{perspective:1100px}
+.feat-vis .phone{transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.feat-vis:hover .phone{transform:rotateY(-7deg) rotateX(3deg) translateY(-6px)}
+.feat.flip .feat-vis:hover .phone{transform:rotateY(7deg) rotateX(3deg) translateY(-6px)}
+.feat-vis .chip{transition:translate .5s cubic-bezier(.2,.8,.2,1)}
+.feat-vis:hover .chip.t{translate:0 -8px}
+.feat-vis:hover .chip.b{translate:0 8px}
+
+/* detail tiles */
+.tile{transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.tile:hover{transform:translateY(-6px);border-color:var(--edge-hi)}
+.tile .ico{transition:transform .35s cubic-bezier(.3,1.6,.5,1),background .3s}
+.tile:hover .ico{transform:rotate(-8deg) scale(1.1);background:color-mix(in srgb,var(--accent) 30%,transparent)}
+
+/* recurring demo */
+.rec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;padding-block:28px 56px;align-items:start}
+.demo{padding:28px;border-radius:32px;display:flex;flex-direction:column;gap:20px;min-width:0}
+.demo-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.switch{display:inline-flex;align-items:center;gap:12px;cursor:pointer;padding:6px 6px 6px 14px;border-radius:999px;border:1px solid var(--edge);transition:border-color .25s,transform .25s}
+.switch:hover{border-color:var(--edge-hi);transform:translateY(-1px)}
+.status{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.86rem}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 25%,transparent);transition:background .3s,box-shadow .3s}
+.s-pau{display:none}
+.knob{position:relative;width:42px;height:24px;border-radius:999px;background:var(--accent);transition:background .3s}
+.knob::after{content:"";position:absolute;top:3px;right:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:translate .3s cubic-bezier(.3,1.4,.5,1)}
+.demo:has(#pause:checked) .s-act{display:none}
+.demo:has(#pause:checked) .s-pau{display:inline}
+.demo:has(#pause:checked) .status i{background:var(--gold);box-shadow:0 0 0 4px color-mix(in srgb,var(--gold) 25%,transparent)}
+.demo:has(#pause:checked) .knob{background:color-mix(in srgb,var(--fg) 25%,transparent)}
+.demo:has(#pause:checked) .knob::after{translate:-18px 0}
+.demo:has(#pause:focus-visible) .switch,.demo:has(#confirm:focus-visible) .confirm,.freq input:focus-visible + label{outline:2px solid var(--accent-text);outline-offset:3px}
+.demo-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.demo-sub{color:var(--muted)}
+.freq{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;border:0;margin:0;padding:0;min-width:0}
+.freq label{text-align:center;padding:11px 4px;border-radius:14px;border:1px solid var(--edge);font-weight:600;font-size:.92rem;cursor:pointer;background:color-mix(in srgb,var(--fg) 5%,transparent);transition:transform .25s,background .25s,color .25s,border-color .25s}
+.freq label:hover{transform:translateY(-3px);border-color:var(--edge-hi)}
+.freq input:checked + label{background:var(--btn-bg);color:var(--btn-fg);border-color:transparent;box-shadow:0 12px 24px -12px var(--accent)}
+.every{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px;font-size:1.05rem}
+.every b{font-family:var(--font-display);font-size:1.4rem}
+.every small{margin-left:auto;color:var(--muted);font-size:.85rem}
+.u{display:none}
+.u-m{display:inline}
+.demo:has(#f-d:checked) .u-m,.demo:has(#f-w:checked) .u-m,.demo:has(#f-y:checked) .u-m{display:none}
+.demo:has(#f-d:checked) .u-d,.demo:has(#f-w:checked) .u-w,.demo:has(#f-y:checked) .u-y{display:inline}
+.dates{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field{padding:12px 16px;border-radius:16px;border:1px solid var(--edge);background:color-mix(in srgb,var(--fg) 5%,transparent);display:flex;flex-direction:column;gap:2px;transition:border-color .25s}
+.field:hover{border-color:var(--edge-hi)}
+.field small{color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.due{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border-radius:20px;border:1px solid var(--edge);background:color-mix(in srgb,var(--accent) 14%,transparent);transition:opacity .3s,background .4s}
+.due-text{display:flex;flex-direction:column;min-width:0}
+.due-text small{color:var(--muted)}
+.d-after{display:none}
+.confirm{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;font-weight:700;cursor:pointer;background:var(--btn-bg);color:var(--btn-fg);transition:transform .25s,box-shadow .25s;white-space:nowrap}
+.confirm:hover{transform:translateY(-2px);box-shadow:0 14px 26px -12px var(--accent)}
+.confirm .ic{width:18px;height:18px;stroke-width:2.6}
+.confirm .d-after{align-items:center;gap:6px}
+.demo:has(#confirm:checked) .d-before{display:none}
+.demo:has(#confirm:checked) .d-after{display:inline-flex}
+.demo:has(#confirm:checked) .due-text .d-after{display:inline}
+.demo:has(#confirm:checked) .due{background:color-mix(in srgb,var(--accent) 26%,transparent)}
+.demo:has(#pause:checked) .due{opacity:.45}
+.demo:has(#pause:checked) .confirm{pointer-events:none}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;min-width:0}
+.step{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:start;padding:20px 22px;border-radius:24px;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.step:hover{transform:translateX(8px);border-color:var(--edge-hi)}
+.step .n{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-family:var(--font-display);font-weight:800;color:var(--accent-text);background:color-mix(in srgb,var(--accent) 18%,transparent);border:1px solid var(--edge);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.step:hover .n{transform:scale(1.12) rotate(-6deg)}
+.step h3{font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
+.step p{color:var(--muted);font-size:1rem}
+
+/* local-first */
+.local{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;padding-block:28px 40px;align-items:stretch}
+.flipcard{perspective:1000px;min-height:320px;border-radius:32px;cursor:pointer}
+.fc-in{position:relative;width:100%;height:100%;min-height:320px;transition:transform .85s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.flipcard:hover .fc-in,.flipcard:focus .fc-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:32px;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:36px;border:1px solid var(--edge-hi);box-shadow:0 30px 60px -28px var(--shadow);background:linear-gradient(150deg,color-mix(in srgb,var(--accent) 26%,var(--glass-fallback)),var(--glass-fallback))}
+.face.back{transform:rotateY(180deg);background:linear-gradient(150deg,color-mix(in srgb,var(--gold) 26%,var(--glass-fallback)),var(--glass-fallback))}
+.face small{text-transform:uppercase;letter-spacing:.14em;font-size:.76rem;font-weight:700;color:var(--accent-text)}
+.face.back small{color:var(--gold)}
+.face b{font-family:var(--font-display);font-size:clamp(3rem,7vw,4.8rem);font-weight:800;letter-spacing:-.03em;line-height:1}
+.face span{color:var(--muted)}
+.points{display:flex;flex-direction:column;gap:14px;min-width:0}
+.pt{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:start;padding:20px 22px;border-radius:24px;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.pt:hover{transform:translateY(-4px);border-color:var(--edge-hi)}
+.pt .ico,.rc .ico{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;color:var(--accent-text);background:color-mix(in srgb,var(--accent) 18%,transparent);border:1px solid var(--edge);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.pt:hover .ico,.rc:hover .ico{transform:rotate(-8deg) scale(1.1)}
+.pt h3{font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
+.pt p{color:var(--muted);font-size:1rem}
+.tech{display:flex;flex-wrap:wrap;gap:10px;padding-bottom:56px}
+.tech .pill{transition:transform .25s,border-color .25s}
+.tech .pill:hover{transform:translateY(-4px);border-color:var(--edge-hi)}
+
+/* changelog */
+.cl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding-block:28px 18px}
+.col{padding:26px;border-radius:28px;display:flex;flex-direction:column;gap:16px;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.col:hover{transform:translateY(-5px);border-color:var(--edge-hi)}
+.col.add{--c:var(--accent-text)}
+.col.chg{--c:var(--gold)}
+.col.fix{--c:var(--coral)}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:999px;font-family:var(--font-body);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c);border:1px solid currentColor;background:color-mix(in srgb,currentColor 12%,transparent)}
+.col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;color:var(--muted);font-size:1rem}
+.col li{display:flex;gap:12px}
+.col li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;margin-top:.62em;background:var(--c);transition:transform .25s}
+.col li:hover::before{transform:scale(1.8)}
+.verified{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;padding:18px 26px;border-radius:24px;margin-bottom:56px;color:var(--muted);font-size:.98rem}
+
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;padding-block:28px 56px}
+.rc{grid-column:span 3;padding:24px;border-radius:26px;display:flex;flex-direction:column;gap:12px;align-items:flex-start;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.rc:nth-child(-n+3){grid-column:span 4}
+.rc:hover{transform:translateY(-6px);border-color:var(--edge-hi)}
+.rc h3{font-size:1.2rem;font-weight:700;letter-spacing:-.015em;line-height:1.2}
+.rc p{color:var(--muted);font-size:1rem;flex:1}
+.tagp{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:999px;border:1px dashed var(--edge-hi);color:var(--muted)}
+.tagp.done{border-style:solid;border-color:transparent;background:var(--btn-bg);color:var(--btn-fg)}
+
+/* open source */
+.open{display:flex;flex-wrap:wrap;gap:28px 48px;align-items:center;justify-content:space-between;padding:48px;border-radius:44px;margin-block:0 40px}
+.open-copy{max-width:34em;display:flex;flex-direction:column;gap:14px;min-width:0}
+.open-copy p{color:var(--muted);font-size:1.08rem}
+.open-copy p.fine{font-size:.9rem}
+.open-cta{display:flex;flex-wrap:wrap;gap:12px}
+
+/* footer links */
+.foot-links{display:flex;flex-wrap:wrap;gap:6px 20px}
+.foot-links a{text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--fg)}
+
+@media (max-width:1000px){
+  .rc,.rc:nth-child(-n+3){grid-column:span 6}
+  .rc:last-child{grid-column:1/-1}
+}
+@media (max-width:900px){
+  .rec,.local{grid-template-columns:1fr}
+  .cl{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .rc,.rc:nth-child(-n+3){grid-column:1/-1}
+  .open{padding:32px 24px;border-radius:34px}
+  .demo{padding:22px}
+  .freq label{font-size:.84rem;padding:10px 2px}
+  .every small{margin-left:0;flex-basis:100%}
+  .face{padding:26px}
+}
+@media (prefers-reduced-motion:reduce){
+  .tile:hover,.step:hover,.pt:hover,.col:hover,.rc:hover,.announce:hover,.tech .pill:hover,.freq label:hover,.confirm:hover,.switch:hover{transform:none}
+  .feat-vis:hover .phone,.feat.flip .feat-vis:hover .phone{transform:none}
+  .fc-in,.btn-main::after,.knob::after{transition:none}
+  .brand:hover svg{rotate:none}
+}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .ph-c,.ph-l,.ph-r{animation:none}
@@ -226,6 +418,7 @@ footer{padding-block:12px 36px}
 <div class="bg" aria-hidden="true">
   <i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="orb o4"></i>
   <i class="orb o5"></i><i class="orb o6"></i><i class="orb o7"></i><i class="orb o8"></i>
+  <i class="orb o9"></i><i class="orb o10"></i><i class="orb o11"></i><i class="orb o12"></i>
 </div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -244,8 +437,9 @@ footer{padding-block:12px 36px}
     <a class="brand" href="#top" aria-label="Artham, back to top"><svg aria-hidden="true"><use href="#logo"/></svg>Artham</a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#features">Features</a>
-      <a href="#details">Details</a>
-      <a href="#name">The name</a>
+      <a href="#recurring">Recurring</a>
+      <a href="#local">Local-first</a>
+      <a href="#roadmap">Roadmap</a>
     </nav>
     <span class="pill glass"><span class="dot"></span>Android · coming soon</span>
   </header>
@@ -254,7 +448,12 @@ footer{padding-block:12px 36px}
 
     <section class="hero" aria-labelledby="h-hero">
       <div class="hero-copy">
-        <span class="pill glass"><span class="dot"></span>Personal budgeting for Android</span>
+        <div class="hero-pills">
+          <a class="pill glass announce" href="#recurring"><span class="tag">Next build</span>Recurring transactions
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <span class="pill glass"><span class="dot"></span>Personal budgeting for Android</span>
+        </div>
         <h1 id="h-hero">Your money, <em>under control.</em></h1>
         <p class="lede">Artham shows every account as one balance, records each rupee as it moves, and keeps every category inside its limit.</p>
         <div class="cta-row">
@@ -270,7 +469,7 @@ footer{padding-block:12px 36px}
         <div class="phone ph-l"><img src="img/insights.webp" width="640" height="1422" alt="Artham Insights screen with net savings, a six-month income and expense chart and spending by category"></div>
         <div class="phone ph-r"><img src="img/budgets.webp" width="640" height="1422" alt="Artham Budgets screen with the total monthly budget and category budgets with progress bars"></div>
         <div class="phone ph-c"><img src="img/home.webp" width="640" height="1422" alt="Artham home screen with the total available balance, income and expenses this month, and three bank accounts"></div>
-        <div class="chip glass c1"><span class="ico">%</span><span><b>86.4%</b><small>savings rate this month</small></span></div>
+        <div class="chip glass c1"><span class="ico">%</span><span><b>86.4%</b><small>savings rate</small></span></div>
         <div class="chip glass c2"><span class="ico">₹</span><span><b>3 accounts</b><small>one total balance</small></span></div>
       </div>
     </section>
@@ -290,6 +489,7 @@ footer{padding-block:12px 36px}
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Total across Federal Bank, ICICI Bank, State Bank of India and more</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Income and expenses for the month at a glance</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>A card for each bank with its last four digits and balance</li>
+            <li><svg aria-hidden="true"><use href="#tick"/></svg>Balances that update as transactions change</li>
           </ul>
         </div>
         <div class="feat-vis glass">
@@ -305,7 +505,8 @@ footer{padding-block:12px 36px}
           <p class="body">Log income and expenses with the Add Transaction button. Search by description or reference, filter to income or expenses, and the summary follows what you are looking at.</p>
           <ul class="ticks">
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Add Transaction button always within reach</li>
-            <li><svg aria-hidden="true"><use href="#tick"/></svg>All, Income and Expenses filters plus a search bar</li>
+            <li><svg aria-hidden="true"><use href="#tick"/></svg>Search, filter and sort your transactions</li>
+            <li><svg aria-hidden="true"><use href="#tick"/></svg>A shortcut to Recurring Transactions</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Net movement “based on current filters”</li>
           </ul>
         </div>
@@ -341,6 +542,7 @@ footer{padding-block:12px 36px}
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Total monthly budget with spent and remaining amounts</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Per-category limits, each with “% used” and “left”</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Step back through earlier months</li>
+            <li><svg aria-hidden="true"><use href="#tick"/></svg>Progress refreshes by itself when transactions change</li>
           </ul>
         </div>
         <div class="feat-vis glass">
@@ -356,12 +558,152 @@ footer{padding-block:12px 36px}
         <h2 id="h-details">Built around how you really check your money.</h2>
       </div>
       <div class="grid">
-        <div class="tile glass"><div class="ico">₹</div><h3>Rupee first</h3><p>Balances, budgets and transactions are all shown in rupees.</p></div>
-        <div class="tile glass"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></div><h3>Search that finds it</h3><p>Look up any entry by its description or reference.</p></div>
-        <div class="tile glass"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></div><h3>Filter in one tap</h3><p>Switch between All, Income and Expenses. The totals follow.</p></div>
-        <div class="tile glass"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></div><h3>Month by month</h3><p>Move between months to see how a budget held up.</p></div>
-        <div class="tile glass"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 20V11M12 20V5M18 20v-6"/></svg></div><h3>Six-month view</h3><p>Income and expenses for the last six months, side by side.</p></div>
-        <div class="tile glass"><div class="ico">%</div><h3>Savings rate</h3><p>One number for how much of this month’s income you kept.</p></div>
+        <div class="tile glass" data-glow><div class="ico">₹</div><h3>Rupee first</h3><p>Balances, budgets and transactions are all shown in rupees.</p></div>
+        <div class="tile glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></svg></div><h3>Live balances</h3><p>Account balances stay current as transactions change.</p></div>
+        <div class="tile glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h14M14 4l4 4-4 4M20 16H6M10 12l-4 4 4 4"/></svg></div><h3>Internal transfers</h3><p>Move money between your accounts without changing your overall balance.</p></div>
+        <div class="tile glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div><h3>Account history</h3><p>Review every transaction tied to a single account.</p></div>
+        <div class="tile glass" data-glow><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></div><h3>Search that finds it</h3><p>Look up any entry by its description or reference.</p></div>
+        <div class="tile glass" data-glow><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></div><h3>Filter and sort</h3><p>Switch between All, Income and Expenses, and sort the list. The totals follow.</p></div>
+        <div class="tile glass" data-glow><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></div><h3>Month by month</h3><p>Move between months to see how a budget held up.</p></div>
+        <div class="tile glass" data-glow><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 20V11M12 20V5M18 20v-6"/></svg></div><h3>Six-month view</h3><p>Income and expenses for the last six months, side by side.</p></div>
+        <div class="tile glass" data-glow><div class="ico">%</div><h3>Savings rate</h3><p>One number for how much of this month’s income you kept.</p></div>
+      </div>
+    </section>
+
+    <section id="recurring" aria-labelledby="h-rec">
+      <div class="sec-head">
+        <span class="eyebrow">Recurring transactions · next build</span>
+        <h2 id="h-rec">Set it once. Confirm when it’s due.</h2>
+        <p class="sec-sub">Rent, subscriptions, a salary: create a schedule for income or expenses. Artham lists what is due and waits for you. Nothing is added until you confirm it.</p>
+      </div>
+      <div class="rec">
+        <div class="demo glass" data-glow>
+          <input class="sr" type="checkbox" id="pause">
+          <input class="sr" type="checkbox" id="confirm">
+          <div class="demo-top">
+            <span class="eyebrow">Example schedule · try it</span>
+            <label class="switch" for="pause"><span class="status"><i></i><span class="s-act">Active</span><span class="s-pau">Paused</span></span><span class="knob" aria-hidden="true"></span><span class="sr-text">Pause schedule</span></label>
+          </div>
+          <div>
+            <div class="demo-title">Rent</div>
+            <div class="demo-sub">₹5600.00 · Federal Bank · Expense</div>
+          </div>
+          <fieldset class="freq">
+            <legend class="sr-text">Repeats</legend>
+            <input class="sr" type="radio" name="freq" id="f-d"><label for="f-d">Daily</label>
+            <input class="sr" type="radio" name="freq" id="f-w"><label for="f-w">Weekly</label>
+            <input class="sr" type="radio" name="freq" id="f-m" checked><label for="f-m">Monthly</label>
+            <input class="sr" type="radio" name="freq" id="f-y"><label for="f-y">Yearly</label>
+          </fieldset>
+          <div class="every">Repeats every <b>1</b> <span class="u u-d">day</span><span class="u u-w">week</span><span class="u u-m">month</span><span class="u u-y">year</span><small>Any interval works</small></div>
+          <div class="dates">
+            <div class="field"><small>Starts</small><b>1 Nov 2026</b></div>
+            <div class="field"><small>Ends</small><b>Optional</b></div>
+          </div>
+          <div class="due">
+            <div class="due-text">
+              <b><span class="d-before">Due today</span><span class="d-after">Added to Activity</span></b>
+              <small><span class="d-before">Review it, then confirm</span><span class="d-after">Marked as a recurring transaction</span></small>
+            </div>
+            <label class="confirm" for="confirm"><span class="d-before">Confirm</span><span class="d-after"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Done</span></label>
+          </div>
+        </div>
+
+        <ol class="steps">
+          <li class="step glass" data-glow><span class="n">1</span><div><h3>Create a schedule</h3><p>Choose daily, weekly, monthly or yearly with a custom interval, a start date and an optional end date.</p></div></li>
+          <li class="step glass" data-glow><span class="n">2</span><div><h3>Stay in control</h3><p>Pause and resume a schedule, or delete it, whenever your plans change.</p></div></li>
+          <li class="step glass" data-glow><span class="n">3</span><div><h3>Review what’s due</h3><p>Due schedules wait for you on the Recurring Transactions screen, one tap from Activity.</p></div></li>
+          <li class="step glass" data-glow><span class="n">4</span><div><h3>Confirm once</h3><p>The transaction joins your normal Activity history, marked as recurring. The same occurrence can never be added twice.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="local" aria-labelledby="h-local">
+      <div class="sec-head">
+        <span class="eyebrow">Local-first</span>
+        <h2 id="h-local">Your data stays on your phone.</h2>
+      </div>
+      <div class="local">
+        <div class="flipcard" tabindex="0" role="group" aria-label="Hover or tap to flip. ₹100.00 is stored as 10000 paise.">
+          <div class="fc-in">
+            <div class="face front"><small>What you see</small><b>₹100.00</b><span>Hover or tap to flip</span></div>
+            <div class="face back"><small>What Artham stores</small><b>10000</b><span>Whole paise, never fractions of a rupee</span></div>
+          </div>
+        </div>
+        <div class="points">
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></div><div><h3>Stored on the device</h3><p>Artham keeps its data in an SQLite database on your phone, managed with Drift.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><div><h3>Exact to the paisa</h3><p>Amounts are saved as whole paise, so floating-point rounding never creeps into your balances.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.2 8.5-7 10-3.8-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h3>Upgrades keep your records</h3><p>Database migrations are written to preserve existing data. The latest one kept every transaction intact.</p></div></div>
+          <p class="fine">Database encryption and other security improvements are planned.</p>
+        </div>
+      </div>
+      <div class="tech" aria-label="Built with">
+        <span class="pill glass"><span class="dot"></span>Flutter</span>
+        <span class="pill glass"><span class="dot"></span>Dart</span>
+        <span class="pill glass"><span class="dot"></span>SQLite</span>
+        <span class="pill glass"><span class="dot"></span>Drift</span>
+        <span class="pill glass"><span class="dot"></span>Local-first</span>
+      </div>
+    </section>
+
+    <section id="whatsnew" aria-labelledby="h-new">
+      <div class="sec-head">
+        <span class="eyebrow">From the changelog</span>
+        <h2 id="h-new">What’s new in the next build.</h2>
+        <p class="sec-sub">Everything below is listed as Unreleased in the project changelog. Version and build numbers are added once a release is confirmed.</p>
+      </div>
+      <div class="cl">
+        <div class="col add glass" data-glow>
+          <h3><span class="badge">Added</span></h3>
+          <ul>
+            <li>Recurring schedules for income and expenses</li>
+            <li>Daily, weekly, monthly and yearly frequencies</li>
+            <li>Custom intervals with a scrollable number picker</li>
+            <li>Start dates and optional end dates</li>
+            <li>A Recurring Transactions screen, reached from Activity</li>
+            <li>Pause, resume and delete for every schedule</li>
+            <li>Review and confirmation of due schedules</li>
+            <li>Recurring entries in Activity history, with a source marker</li>
+          </ul>
+        </div>
+        <div class="col chg glass" data-glow>
+          <h3><span class="badge">Changed</span></h3>
+          <ul>
+            <li>Database schema upgraded to version 2</li>
+            <li>New RecurringSchedules table, with its migration</li>
+            <li>Activity has a shortcut to Recurring Transactions</li>
+            <li>Project documentation covers recurring transactions</li>
+          </ul>
+        </div>
+        <div class="col fix glass" data-glow>
+          <h3><span class="badge">Fixed</span></h3>
+          <ul>
+            <li>No more duplicate transactions for the same schedule occurrence</li>
+            <li>Existing transaction records are preserved through the schema migration</li>
+          </ul>
+        </div>
+      </div>
+      <div class="verified glass">
+        <span class="eyebrow">Verified</span>
+        <span><code>flutter analyze</code> reports no issues</span>
+        <span>Tested in the Android emulator</span>
+        <span>Generated entries show the right amount, category, account, description and date</span>
+      </div>
+    </section>
+
+    <section id="roadmap" aria-labelledby="h-road">
+      <div class="sec-head">
+        <span class="eyebrow">Roadmap · active development</span>
+        <h2 id="h-road">Where Artham is going.</h2>
+      </div>
+      <div class="road">
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17h12l-1.5-2v-4a4.5 4.5 0 0 0-9 0v4L6 17zM10 20a2 2 0 0 0 4 0"/></svg></div><h3>Budget alerts, rollover and projections</h3><p>Alerts when budgets need attention, rollover of unused amounts and a look at where the month is heading.</p><span class="tagp">Planned</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-4 3v-3H4z"/></svg></div><h3>SMS transaction import</h3><p>Bring transactions in from bank messages instead of typing them.</p><span class="tagp">Planned</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5"/></svg></div><h3>Bank statement import</h3><p>Load transactions straight from a statement.</p><span class="tagp">Planned</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><h3>Database encryption</h3><p>Extra protection for the on-device database, with further security work.</p><span class="tagp">Planned</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div><h3>Expanded Settings</h3><p>More options in the Settings screen.</p><span class="tagp">Planned</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg></div><h3>Faster everywhere</h3><p>Further performance improvements across the app.</p><span class="tagp">Planned</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></svg></div><h3>Recurring transactions</h3><p>Built and tested, arriving in the next build.</p><span class="tagp done">Next build</span></div>
       </div>
     </section>
 
@@ -379,8 +721,24 @@ footer{padding-block:12px 36px}
       <div class="soon-copy">
         <span class="eyebrow">What’s next</span>
         <h2 id="h-soon">Settings are on the way.</h2>
-        <p>Artham is built for Android and is getting its finishing touches. A download link will appear here when it is ready.</p>
+        <p>The Settings screen is a placeholder today, with expanded options planned. Artham is built for Android and still in active development. A download link will appear here when it is ready.</p>
         <span class="pill glass"><span class="dot"></span>Android · coming soon</span>
+      </div>
+    </section>
+
+    <section id="open" class="open glass" data-glow aria-labelledby="h-open">
+      <div class="open-copy">
+        <span class="eyebrow">Open source code</span>
+        <h2 id="h-open">Built in the open.</h2>
+        <p>Artham’s source code is on GitHub. Bug reports, suggestions and contributions are welcome while the app is in active development.</p>
+        <p class="fine">No licence has been added yet, so all rights are reserved by the project owner.</p>
+      </div>
+      <div class="open-cta">
+        <a class="btn btn-main" href="https://github.com/vishnuwiz/artham" target="_blank" rel="noopener">View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+        <a class="btn btn-glass glass" href="https://github.com/vishnuwiz/artham/blob/HEAD/CHANGELOG.md" target="_blank" rel="noopener">Read the changelog</a>
+        <a class="btn btn-glass glass" href="https://github.com/vishnuwiz/artham/issues" target="_blank" rel="noopener">Report an issue</a>
       </div>
     </section>
 
@@ -389,10 +747,32 @@ footer{padding-block:12px 36px}
   <footer>
     <div class="foot glass">
       <a class="brand" href="#top"><svg aria-hidden="true"><use href="#logo"/></svg>Artham <span lang="ml">അർത്ഥം</span></a>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#features">Features</a>
+        <a href="#recurring">Recurring</a>
+        <a href="#local">Local-first</a>
+        <a href="#whatsnew">What’s new</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="https://github.com/vishnuwiz/artham" target="_blank" rel="noopener">GitHub</a>
+      </nav>
       <span>Personal budgeting for Android · 2026</span>
     </div>
   </footer>
 
 </div>
+
+<script>
+/* spotlight that follows the pointer on glass cards (mouse and trackpad only) */
+(function () {
+  if (!window.matchMedia || !matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  document.querySelectorAll('[data-glow]').forEach(function (el) {
+    el.addEventListener('pointermove', function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+})();
+</script>
 </body>
 </html>
