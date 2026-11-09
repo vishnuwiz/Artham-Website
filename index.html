@@ -4,12 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Artham</title>
-<meta name="description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, schedule recurring transactions and keep every category inside its limit.">
+<meta name="description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, plan budgets with rollover and forecasts, schedule recurring transactions and keep every category inside its limit.">
 <meta name="theme-color" content="#06181b">
 <meta property="og:title" content="Artham">
-<meta property="og:description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, schedule recurring transactions and keep every category inside its limit.">
+<meta property="og:description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, plan budgets with rollover and forecasts, schedule recurring transactions and keep every category inside its limit.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='11' fill='%23112b34'/%3E%3Crect x='8' y='10' width='20' height='17' rx='4' fill='%235ee6b0'/%3E%3Crect x='17' y='15' width='11' height='7' rx='3' fill='%23112b34'/%3E%3Ccircle cx='22.2' cy='18.5' r='1.5' fill='%235ee6b0'/%3E%3C/svg%3E">
+<meta property="og:image" content="https://vishnuwiz.github.io/Artham-Website/img/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="img/icon-64.png">
+<link rel="apple-touch-icon" href="img/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:opsz,wght@9..40,400..700&family=Noto+Sans+Malayalam:wght@500..800&display=swap" rel="stylesheet">
@@ -96,6 +99,7 @@ p{margin:0}
 .o10{background:var(--orb-b);top:6700px;right:-200px}
 .o11{background:var(--orb-c);top:7600px;left:-180px}
 .o12{background:var(--orb-a);top:8500px;right:-180px}
+.o13{background:var(--orb-d);top:9500px;left:-200px;width:min(480px,80vw)}
 
 .wrap{position:relative;z-index:1;max-width:1180px;margin-inline:auto}
 
@@ -118,7 +122,7 @@ p{margin:0}
   display:flex;align-items:center;justify-content:space-between;gap:12px;
 }
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-weight:800;font-size:1.2rem;letter-spacing:-.01em}
-.brand svg{width:34px;height:34px;display:block}
+.brand img{width:34px;height:34px;display:block;border-radius:10px}
 .nav-links{display:flex;gap:26px;font-size:.95rem;font-weight:500}
 .nav-links a{text-decoration:none;color:var(--muted);transition:color .2s}
 .nav-links a:hover{color:var(--fg)}
@@ -217,7 +221,7 @@ h2{font-weight:700;font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.06;letter-sp
 footer{padding-block:12px 36px}
 .foot{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between;padding:16px 22px;border-radius:26px;color:var(--muted);font-size:.92rem}
 .foot .brand{color:var(--fg);font-size:1.05rem}
-.foot .brand svg{width:28px;height:28px}
+.foot .brand img{width:28px;height:28px;border-radius:8px}
 .foot .brand span{font-family:var(--font-ml);font-weight:600;font-size:.95rem;color:var(--muted)}
 
 /* ---------- additions: new sections + hover polish ---------- */
@@ -239,8 +243,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 .nav-links a{position:relative}
 .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:var(--accent);scale:0 1;transform-origin:left;transition:scale .25s ease}
 .nav-links a:hover::after,.nav-links a:focus-visible::after{scale:1 1}
-.brand svg{transition:rotate .4s cubic-bezier(.3,1.6,.5,1)}
-.brand:hover svg{rotate:-10deg}
+.brand img{transition:rotate .4s cubic-bezier(.3,1.6,.5,1)}
+.brand:hover img{rotate:-10deg}
 .btn-main{position:relative;overflow:hidden}
 .btn-main::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.5) 50%,transparent 70%);translate:-120% 0;transition:translate .7s ease}
 .btn-main:hover::after{translate:120% 0}
@@ -250,11 +254,12 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
 /* hero announcement */
 .hero-pills{display:flex;flex-wrap:wrap;gap:10px}
-.announce{text-decoration:none;transition:transform .25s,border-color .25s}
+.announce{text-decoration:none;max-width:100%;transition:transform .25s,border-color .25s}
 .announce:hover{transform:translateY(-2px);border-color:var(--edge-hi)}
 .announce .tag{padding:3px 9px;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase}
 .announce svg{width:14px;height:14px;transition:translate .25s}
 .announce:hover svg{translate:4px 0}
+@media (max-width:520px){.announce{white-space:normal;line-height:1.3;border-radius:20px}}
 
 /* feature panels: gentle 3D tilt */
 .feat-vis{perspective:1100px}
@@ -380,6 +385,36 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 .open-copy p.fine{font-size:.9rem}
 .open-cta{display:flex;flex-wrap:wrap;gap:12px}
 
+/* ---------- budget planning demo ---------- */
+.plan .demo{gap:18px}
+.range{display:flex;flex-direction:column;gap:4px}
+.range label{display:flex;justify-content:space-between;gap:12px;font-weight:600;font-size:.92rem}
+.range output{font-family:var(--font-display);font-weight:700;color:var(--accent-text);font-variant-numeric:tabular-nums}
+.range input{width:100%;accent-color:var(--accent);height:28px;margin:0;cursor:pointer}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stats .field b{font-family:var(--font-display);font-size:1.25rem;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.meter{position:relative;height:14px;border-radius:999px;background:color-mix(in srgb,var(--fg) 12%,transparent);margin-block:10px 8px}
+.meter i{position:absolute;top:0;bottom:0;left:0;border-radius:999px;transition:width .35s cubic-bezier(.2,.8,.2,1)}
+.meter .m-fore{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--accent) 55%,transparent) 0 6px,color-mix(in srgb,var(--accent) 18%,transparent) 6px 12px)}
+.meter .m-spent{background:var(--accent)}
+.meter .m-limit{width:3px;top:-5px;bottom:-5px;border-radius:2px;background:var(--fg);transition:left .35s cubic-bezier(.2,.8,.2,1)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--muted);font-size:.82rem}
+.verdict{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.state{display:inline-flex;align-items:center;padding:6px 14px;border-radius:999px;font-weight:700;font-size:.84rem;border:1px solid currentColor;color:var(--accent-text);background:color-mix(in srgb,currentColor 12%,transparent);white-space:nowrap}
+.state[data-s="bad"]{color:var(--coral)}
+.state[data-s="wait"]{color:var(--muted)}
+.note{color:var(--muted);font-size:.9rem}
+.demo-sub .note{font-size:inherit}
+.switch.roll .knob{background:color-mix(in srgb,var(--fg) 25%,transparent)}
+.switch.roll .knob::after{translate:-18px 0}
+.switch.roll .r-on{display:none}
+.demo:has(#fc-roll:checked) .switch.roll .knob{background:var(--accent)}
+.demo:has(#fc-roll:checked) .switch.roll .knob::after{translate:0 0}
+.demo:has(#fc-roll:checked) .r-on{display:inline}
+.demo:has(#fc-roll:checked) .r-off{display:none}
+.demo:has(#fc-roll:focus-visible) .switch.roll{outline:2px solid var(--accent-text);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.meter i{transition:none}}
+
 /* footer links */
 .foot-links{display:flex;flex-wrap:wrap;gap:6px 20px}
 .foot-links a{text-decoration:none;transition:color .2s}
@@ -405,7 +440,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
   .tile:hover,.step:hover,.pt:hover,.col:hover,.rc:hover,.announce:hover,.tech .pill:hover,.freq label:hover,.confirm:hover,.switch:hover{transform:none}
   .feat-vis:hover .phone,.feat.flip .feat-vis:hover .phone{transform:none}
   .fc-in,.btn-main::after,.knob::after{transition:none}
-  .brand:hover svg{rotate:none}
+  .brand:hover img{rotate:none}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -418,25 +453,20 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 <div class="bg" aria-hidden="true">
   <i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="orb o4"></i>
   <i class="orb o5"></i><i class="orb o6"></i><i class="orb o7"></i><i class="orb o8"></i>
-  <i class="orb o9"></i><i class="orb o10"></i><i class="orb o11"></i><i class="orb o12"></i>
+  <i class="orb o9"></i><i class="orb o10"></i><i class="orb o11"></i><i class="orb o12"></i><i class="orb o13"></i>
 </div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="logo" viewBox="0 0 36 36">
-    <rect width="36" height="36" rx="11" fill="#112b34"/>
-    <rect x="8" y="10" width="20" height="17" rx="4" fill="#5ee6b0"/>
-    <rect x="17" y="15" width="11" height="7" rx="3" fill="#112b34"/>
-    <circle cx="22.2" cy="18.5" r="1.5" fill="#5ee6b0"/>
-  </symbol>
   <symbol id="tick" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity=".16"/><path d="M7.5 12.4l3 3 6-6.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
 <div class="wrap">
 
   <header class="nav glass">
-    <a class="brand" href="#top" aria-label="Artham, back to top"><svg aria-hidden="true"><use href="#logo"/></svg>Artham</a>
+    <a class="brand" href="#top" aria-label="Artham, back to top"><img src="img/icon-96.webp" width="34" height="34" alt="">Artham</a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#features">Features</a>
+      <a href="#planning">Planning</a>
       <a href="#recurring">Recurring</a>
       <a href="#local">Local-first</a>
       <a href="#roadmap">Roadmap</a>
@@ -449,7 +479,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
     <section class="hero" aria-labelledby="h-hero">
       <div class="hero-copy">
         <div class="hero-pills">
-          <a class="pill glass announce" href="#recurring"><span class="tag">Next build</span>Recurring transactions
+          <a class="pill glass announce" href="#planning"><span class="tag">Next build</span>Budget forecasts and recurring transactions
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <span class="pill glass"><span class="dot"></span>Personal budgeting for Android</span>
@@ -490,6 +520,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Income and expenses for the month at a glance</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>A card for each bank with its last four digits and balance</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Balances that update as transactions change</li>
+            <li><svg aria-hidden="true"><use href="#tick"/></svg>A budget shortcut that opens the full Budgets screen</li>
           </ul>
         </div>
         <div class="feat-vis glass">
@@ -525,6 +556,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Net savings with a plain-language note on how you are doing</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Six months of income and expenses, side by side</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>“Where your money goes” by category, with percentages</li>
+            <li><svg aria-hidden="true"><use href="#tick"/></svg>Budget performance, planned against actual, with month-end forecasts</li>
           </ul>
         </div>
         <div class="feat-vis glass">
@@ -543,6 +575,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Per-category limits, each with “% used” and “left”</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Step back through earlier months</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Progress refreshes by itself when transactions change</li>
+            <li><svg aria-hidden="true"><use href="#tick"/></svg>Alerts when a budget reaches 80% and 100%</li>
+            <li><svg aria-hidden="true"><use href="#tick"/></svg>Opt-in rollover and twelve months of budget history</li>
           </ul>
         </div>
         <div class="feat-vis glass">
@@ -567,6 +601,50 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <div class="tile glass" data-glow><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></div><h3>Month by month</h3><p>Move between months to see how a budget held up.</p></div>
         <div class="tile glass" data-glow><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 20V11M12 20V5M18 20v-6"/></svg></div><h3>Six-month view</h3><p>Income and expenses for the last six months, side by side.</p></div>
         <div class="tile glass" data-glow><div class="ico">%</div><h3>Savings rate</h3><p>One number for how much of this month’s income you kept.</p></div>
+      </div>
+    </section>
+
+    <section id="planning" aria-labelledby="h-plan">
+      <div class="sec-head">
+        <span class="eyebrow">Budget planning · next build</span>
+        <h2 id="h-plan">Plan the month. See it coming.</h2>
+        <p class="sec-sub">Carry unused money forward, repeat your limits every month, compare plan with reality, and get a forecast before the month is over.</p>
+      </div>
+      <div class="rec plan">
+        <div class="demo glass" data-glow id="forecast">
+          <input class="sr" type="checkbox" id="fc-roll">
+          <div class="demo-top">
+            <span class="eyebrow">Example forecast · move the sliders</span>
+            <label class="switch roll" for="fc-roll"><span class="status"><i></i><span class="r-off">Rollover off</span><span class="r-on">Rollover on</span></span><span class="knob" aria-hidden="true"></span><span class="sr-text">Carry the unused balance forward</span></label>
+          </div>
+          <div>
+            <div class="demo-title">Overall budget</div>
+            <div class="demo-sub">November · <span id="fc-limit">₹25000.00</span> limit<span class="note" id="fc-carry"></span></div>
+          </div>
+          <div class="range"><label for="fc-day">Days elapsed <output id="fc-day-o" for="fc-day">12 of 30</output></label><input type="range" id="fc-day" min="1" max="30" value="12"></div>
+          <div class="range"><label for="fc-spent">Spent so far <output id="fc-spent-o" for="fc-spent">₹9000.00</output></label><input type="range" id="fc-spent" min="0" max="40000" step="500" value="9000"></div>
+          <div>
+            <div class="meter" aria-hidden="true"><i class="m-fore" id="m-fore" style="width:83.3%"></i><i class="m-spent" id="m-spent" style="width:33.3%"></i><i class="m-limit" id="m-limit" style="left:92.6%"></i></div>
+            <div class="legend"><span>● Spent</span><span>▨ Forecast</span><span>| Limit</span></div>
+          </div>
+          <div class="stats">
+            <div class="field"><small>Daily pace</small><b id="fc-pace">₹750.00</b></div>
+            <div class="field"><small>Month-end forecast</small><b id="fc-fore">₹22500.00</b></div>
+          </div>
+          <div class="verdict" aria-live="polite">
+            <span class="state" data-s="ok" id="fc-state">On track</span>
+            <span class="note" id="fc-guide">Spend about ₹888.89 a day to stay within the limit.</span>
+          </div>
+          <p class="note">A simplified illustration of how forecasts work. The app’s own thresholds may differ.</p>
+        </div>
+
+        <div class="points">
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h13M12 6l6 6-6 6"/></svg></div><div><h3>Carry it forward</h3><p>Opt in to roll unused overall and category balances into the next month. Only positive balances carry over.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></div><div><h3>Set a limit once</h3><p>Repeat overall or category limits every month, and pause or resume a template any time. Missing months fill in when you open the app. Existing budgets are never overwritten, and no transactions or balances are touched.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 20V11M12 20V5M18 20v-6"/></svg></div><div><h3>Plan against reality</h3><p>A dashboard compares planned and actual spending for the overall budget and every category, with a six-month trend.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l5-5 4 3 7-8M15 7h5v5"/></svg></div><div><h3>See the month-end</h3><p>Forecasts use your average daily pace, flag budgets that are approaching or likely to exceed their limit, and suggest a daily spending guide. They appear after three days and refresh with Insights.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17h12l-1.5-2v-4a4.5 4.5 0 0 0-9 0v4L6 17zM10 20a2 2 0 0 0 4 0"/></svg></div><div><h3>Alerts and history</h3><p>Budget alerts at 80% and 100%, plus twelve months of budget history with a category breakdown.</p></div></div>
+        </div>
       </div>
     </section>
 
@@ -633,7 +711,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <div class="points">
           <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></div><div><h3>Stored on the device</h3><p>Artham keeps its data in an SQLite database on your phone, managed with Drift.</p></div></div>
           <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><div><h3>Exact to the paisa</h3><p>Amounts are saved as whole paise, so floating-point rounding never creeps into your balances.</p></div></div>
-          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.2 8.5-7 10-3.8-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h3>Upgrades keep your records</h3><p>Database migrations are written to preserve existing data. The latest one kept every transaction intact.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.2 8.5-7 10-3.8-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h3>Upgrades keep your records</h3><p>Database migrations are written to preserve existing data. The latest upgrades kept existing transactions and budgets intact.</p></div></div>
           <p class="fine">Database encryption and other security improvements are planned.</p>
         </div>
       </div>
@@ -656,23 +734,26 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <div class="col add glass" data-glow>
           <h3><span class="badge">Added</span></h3>
           <ul>
-            <li>Recurring schedules for income and expenses</li>
-            <li>Daily, weekly, monthly and yearly frequencies</li>
-            <li>Custom intervals with a scrollable number picker</li>
-            <li>Start dates and optional end dates</li>
-            <li>A Recurring Transactions screen, reached from Activity</li>
-            <li>Pause, resume and delete for every schedule</li>
-            <li>Review and confirmation of due schedules</li>
+            <li>Opt-in rollover for unused overall and category budget balances</li>
+            <li>Recurring monthly budget templates, with pause and resume</li>
+            <li>Missing months filled from templates, never overwriting an existing budget</li>
+            <li>A planned-versus-actual dashboard for the overall budget and each category</li>
+            <li>A six-month planned-versus-actual trend chart</li>
+            <li>Month-end forecasts from the current daily spending pace</li>
+            <li>Budget risk indicators and daily spending recommendations</li>
+            <li>Recurring transaction schedules: daily, weekly, monthly or yearly, with custom intervals, start dates and optional end dates</li>
+            <li>Pause, resume and delete for schedules, plus review and confirmation of what is due</li>
             <li>Recurring entries in Activity history, with a source marker</li>
           </ul>
         </div>
         <div class="col chg glass" data-glow>
           <h3><span class="badge">Changed</span></h3>
           <ul>
-            <li>Database schema upgraded to version 2</li>
-            <li>New RecurringSchedules table, with its migration</li>
+            <li>The app is named Artham across Android, iOS and Web</li>
+            <li>Database schema upgraded to version 4</li>
+            <li>New BudgetTemplates and RecurringSchedules tables, with existing records preserved</li>
+            <li>The Home budget shortcut opens the full Budgets screen</li>
             <li>Activity has a shortcut to Recurring Transactions</li>
-            <li>Project documentation covers recurring transactions</li>
           </ul>
         </div>
         <div class="col fix glass" data-glow>
@@ -686,27 +767,25 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       <div class="verified glass">
         <span class="eyebrow">Verified</span>
         <span><code>flutter analyze</code> reports no issues</span>
-        <span>Tested in the Android emulator</span>
-        <span>Generated entries show the right amount, category, account, description and date</span>
+        <span>Recurring schedules tested in the Android emulator</span>
+        <span>New tests cover templates, forecasts and the database migration</span>
       </div>
     </section>
-
     <section id="roadmap" aria-labelledby="h-road">
       <div class="sec-head">
         <span class="eyebrow">Roadmap · active development</span>
         <h2 id="h-road">Where Artham is going.</h2>
       </div>
       <div class="road">
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17h12l-1.5-2v-4a4.5 4.5 0 0 0-9 0v4L6 17zM10 20a2 2 0 0 0 4 0"/></svg></div><h3>Budget alerts, rollover and projections</h3><p>Alerts when budgets need attention, rollover of unused amounts and a look at where the month is heading.</p><span class="tagp">Planned</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l5-5 4 3 7-8M15 7h5v5"/></svg></div><h3>Budget planning</h3><p>Rollover, monthly templates, planned-versus-actual insights and month-end forecasts.</p><span class="tagp done">Next build</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></svg></div><h3>Recurring transactions</h3><p>Schedules you confirm when they are due.</p><span class="tagp done">Next build</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-4 3v-3H4z"/></svg></div><h3>SMS transaction import</h3><p>Bring transactions in from bank messages instead of typing them.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5"/></svg></div><h3>Bank statement import</h3><p>Load transactions straight from a statement.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><h3>Database encryption</h3><p>Extra protection for the on-device database, with further security work.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div><h3>Expanded Settings</h3><p>More options in the Settings screen.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg></div><h3>Faster everywhere</h3><p>Further performance improvements across the app.</p><span class="tagp">Planned</span></div>
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></svg></div><h3>Recurring transactions</h3><p>Built and tested, arriving in the next build.</p><span class="tagp done">Next build</span></div>
       </div>
     </section>
-
     <section id="name" class="name glass" aria-labelledby="h-name">
       <div class="ml" lang="ml">അർത്ഥം</div>
       <div class="name-copy">
@@ -746,9 +825,10 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
   <footer>
     <div class="foot glass">
-      <a class="brand" href="#top"><svg aria-hidden="true"><use href="#logo"/></svg>Artham <span lang="ml">അർത്ഥം</span></a>
+      <a class="brand" href="#top"><img src="img/icon-96.webp" width="34" height="34" alt="">Artham <span lang="ml">അർത്ഥം</span></a>
       <nav class="foot-links" aria-label="Footer">
         <a href="#features">Features</a>
+        <a href="#planning">Planning</a>
         <a href="#recurring">Recurring</a>
         <a href="#local">Local-first</a>
         <a href="#whatsnew">What’s new</a>
@@ -772,6 +852,49 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       el.style.setProperty('--my', (e.clientY - r.top) + 'px');
     });
   });
+})();
+</script>
+<script>
+/* simplified month-end forecast demo */
+(function () {
+  var root = document.getElementById('forecast');
+  if (!root) return;
+  var $ = function (id) { return document.getElementById(id); };
+  var day = $('fc-day'), spent = $('fc-spent'), roll = $('fc-roll');
+  var BASE = 25000, CARRY = 2150, DAYS = 30;
+  function money(n) { return '₹' + n.toFixed(2); }
+  function update() {
+    var d = +day.value, sp = +spent.value, limit = BASE + (roll.checked ? CARRY : 0);
+    var pace = sp / d, fore = pace * DAYS, left = DAYS - d;
+    var state = 'On track', s = 'ok', guide;
+    $('fc-day-o').textContent = d + ' of ' + DAYS;
+    $('fc-spent-o').textContent = money(sp);
+    $('fc-limit').textContent = money(limit);
+    $('fc-carry').textContent = roll.checked ? ' (' + money(BASE) + ' + ' + money(CARRY) + ' carried forward)' : '';
+    $('fc-pace').textContent = money(pace);
+    var known = d >= 3;
+    $('fc-fore').textContent = known ? money(fore) : 'After 3 days';
+    if (sp >= limit) {
+      state = sp > limit ? 'Over the limit' : 'Limit reached'; s = 'bad';
+      guide = sp > limit ? 'Over the limit by ' + money(sp - limit) + '.' : 'The whole limit is spent.';
+    } else if (!known) {
+      state = 'Gathering data'; s = 'wait';
+      guide = 'Forecasts appear after at least three elapsed days.';
+    } else {
+      if (fore > limit) { state = 'Likely to exceed'; s = 'bad'; }
+      guide = left > 0 ? 'Spend about ' + money((limit - sp) / left) + ' a day to stay within the limit.' : 'The month is complete.';
+    }
+    var st = $('fc-state'); st.textContent = state; st.setAttribute('data-s', s);
+    $('fc-guide').textContent = guide;
+    var scale = Math.max(limit, known ? fore : 0, sp) * 1.08;
+    $('m-spent').style.width = (sp / scale * 100).toFixed(1) + '%';
+    $('m-fore').style.width = (known ? fore / scale * 100 : 0).toFixed(1) + '%';
+    $('m-limit').style.left = (limit / scale * 100).toFixed(1) + '%';
+  }
+  day.addEventListener('input', update);
+  spent.addEventListener('input', update);
+  roll.addEventListener('change', update);
+  update();
 })();
 </script>
 </body>

@@ -2,10 +2,10 @@
 
 Thanks for helping with the Artham website.
 
-The site is one file, `site/index.html`, with all styles inline and no build step. Open it in a browser to work on it.
+The site is one file, `index.html`, with all styles inline and no build step. Open it in a browser to work on it.
 
 1. Fork the repository and create a branch.
-2. Edit `site/index.html` or the images in `site/img/`.
+2. Edit `index.html` or the images in `img/`.
 3. Check the page at desktop width and at about 400px, in light and dark mode.
 4. Open a pull request and describe what changed.
 
