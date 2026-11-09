@@ -6,52 +6,53 @@
 </p>
 
 <p align="center">
-  <img src="site/img/social-preview.png" alt="Artham website preview" width="720">
+  <img src="img/social-preview.png" alt="Artham website preview" width="720">
 </p>
 
 ## About
 
 Artham shows every account as one balance, records each rupee as it moves, and keeps every category inside its limit. The name is Malayalam for *meaning*.
 
-This repository holds the landing page. It shows the app's Home, Activity, Insights and Budgets screens, with sections for recurring transactions, the local-first design, the latest changelog entries and the roadmap. Light and dark themes follow the visitor's device setting.
+This repository holds the landing page. It shows the app's Home, Activity, Insights and Budgets screens, with sections for budget planning (including an interactive forecast example), recurring transactions, the local-first design, the latest changelog entries and the roadmap. Light and dark themes follow the visitor's device setting.
+
+The app itself lives in [vishnuwiz/artham](https://github.com/vishnuwiz/artham). The content sections are written from that repository's README and `CHANGELOG.md`.
 
 ## Structure
 
 ```
-site/
-  index.html        the whole page, styles inline, no JavaScript
-  img/              app screenshots (WebP, 640×1422) and the social preview
-.github/
-  workflows/pages.yml   deploys site/ to GitHub Pages on every push to main
-  dependabot.yml        keeps the workflow actions up to date
-  ISSUE_TEMPLATE/       bug report and suggestion forms
-  PULL_REQUEST_TEMPLATE.md
+index.html      the whole page, styles and a little script inline
+img/            app screenshots (WebP, 640×1422), the app icon and the social preview
 ```
 
 ## Run it locally
 
-There is no build step. Open `site/index.html` in a browser, or serve the folder:
+There is no build step. Open `index.html` in a browser, or serve the folder:
 
 ```sh
-python3 -m http.server 8000 --directory site
+python3 -m http.server 8000
 ```
 
 ## Publish with GitHub Pages
 
-1. Push this repository to GitHub with `main` as the default branch.
-2. Open **Settings → Pages** and set **Source** to **GitHub Actions**.
-3. The **Deploy to GitHub Pages** workflow runs on every push to `main`. When it finishes, the site is live at `https://<your-username>.github.io/<repository>/`.
+1. Open **Settings → Pages**.
+2. Under **Build and deployment**, choose **Deploy from a branch**, pick `main` and `/ (root)`, then save.
+3. After a minute the site is live at `https://<your-username>.github.io/<repository>/`.
 
-For a custom domain, add it under **Settings → Pages → Custom domain**.
+## Keeping it up to date
 
-## Things to edit
+When the app repository gets a new README or changelog entry, update these sections in `index.html`:
 
-- **Download button.** The nav and the last section show "Android · coming soon". Search `site/index.html` for `coming soon` and replace those pills with a link to the Play Store or APK page.
-- **Screenshots.** Replace the files in `site/img/` using the same names and keep the 9:20 ratio.
-- **GitHub links.** The "Built in the open" section links to the app repository, its changelog and its issues page. Change them if the repository moves.
-- **App content.** The recurring transactions, local-first, changelog and roadmap sections are written from the app repository's README and `CHANGELOG.md`. Update them when a release is confirmed.
+- **Budget planning, Recurring, Local-first:** the feature descriptions.
+- **What's new:** the Added, Changed and Fixed lists, copied from the `[Unreleased]` or latest release entry.
+- **Roadmap:** the Planned list in the app README.
+- **Screenshots:** replace the files in `img/` using the same names and keep the 9:20 ratio. The Insights and Budgets screens predate budget planning and forecasts, so new screenshots will show them.
+
+## Other things to edit
+
+- **Download button.** The nav and the last section show "Android · coming soon". Search `index.html` for `coming soon` and replace those pills with a link to the Play Store or APK page.
+- **GitHub links.** The "Built in the open" section links to the app repository, its changelog and its issues page.
 - **Colours and fonts.** Every colour is a CSS variable at the top of the `<style>` block, with a dark set and a light set.
-- **Share preview.** Upload `site/img/social-preview.png` under **Settings → General → Social preview**. To show it on other sites as well, add `<meta property="og:image" content="https://<your-site>/img/social-preview.png">` to the `<head>`.
+- **Share preview.** `img/social-preview.png` is also set as the Open Graph image. Upload it under **Settings → General → Social preview** too.
 
 Fonts (Bricolage Grotesque, DM Sans and Noto Sans Malayalam) load from Google Fonts.
 
