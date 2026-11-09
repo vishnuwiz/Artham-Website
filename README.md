@@ -13,7 +13,7 @@
 
 Artham shows every account as one balance, records each rupee as it moves, and keeps every category inside its limit. The name is Malayalam for *meaning*.
 
-This repository holds the landing page. It shows the app's Home, Activity, Insights and Budgets screens, with sections for budget planning (including an interactive forecast example), recurring transactions, the local-first design, the latest changelog entries and the roadmap. Light and dark themes follow the visitor's device setting.
+This repository holds the landing page. It shows the app's Home, Activity, Insights and Budgets screens, with sections for automatic bank SMS import (with an interactive example), budget planning (including an interactive forecast example), recurring transactions, the local-first design, the latest changelog entries and the roadmap. Light and dark themes follow the visitor's device setting.
 
 The app itself lives in [vishnuwiz/artham](https://github.com/vishnuwiz/artham). The content sections are written from that repository's README and `CHANGELOG.md`.
 
