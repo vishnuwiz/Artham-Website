@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Artham</title>
-<meta name="description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, import bank SMS alerts on Android, plan budgets with rollover and forecasts, schedule recurring transactions and keep every category inside its limit.">
+<meta name="description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, import bank SMS alerts on Android, recognise 1,000+ merchants offline, plan budgets with rollover and forecasts, schedule recurring transactions and keep every category inside its limit.">
 <meta name="theme-color" content="#17132a">
 <meta property="og:title" content="Artham">
-<meta property="og:description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, import bank SMS alerts on Android, plan budgets with rollover and forecasts, schedule recurring transactions and keep every category inside its limit.">
+<meta property="og:description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, import bank SMS alerts on Android, recognise 1,000+ merchants offline, plan budgets with rollover and forecasts, schedule recurring transactions and keep every category inside its limit.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://vishnuwiz.github.io/Artham-Website/img/social-preview.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -451,6 +451,30 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 .soon:hover .appicon{transform:rotate(-4deg) scale(1.05)}
 @media (prefers-reduced-motion:reduce){.soon:hover .appicon,.flow li:hover{transform:none}.appicon{transition:none}}
 
+/* ---------- merchant insights ---------- */
+.mlist{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.mlist li{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;border:1px solid var(--edge);background:color-mix(in srgb,var(--fg) 5%,transparent);transition:transform .25s,border-color .25s}
+.mlist li:hover{transform:translateX(4px);border-color:var(--edge-hi)}
+.mn{font-weight:700;display:flex;flex-direction:column;min-width:0}
+.mn small{color:var(--muted);font-weight:500;font-size:.78rem}
+.mb{height:8px;border-radius:99px;background:color-mix(in srgb,var(--fg) 10%,transparent);overflow:hidden}
+.mb i{display:block;height:100%;width:var(--w);border-radius:99px;background:linear-gradient(90deg,var(--g1),var(--g2))}
+.mlist b{font-family:var(--font-display);font-variant-numeric:tabular-nums}
+.mlist li.flagged{grid-template-areas:"n b a" "e e e";border-color:color-mix(in srgb,var(--coral) 55%,transparent);background:color-mix(in srgb,var(--coral) 12%,transparent)}
+.mlist li.flagged em{grid-column:1/-1;font-style:normal;font-size:.8rem;font-weight:700;color:var(--coral)}
+.sugg{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:18px;border:1px dashed var(--edge-hi);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.sugg b{font-family:var(--font-display)}
+.sugg span:last-child{color:var(--muted);font-size:.9rem;line-height:1.45}
+@media (max-width:520px){.mlist li{grid-template-columns:1fr auto}.mb{display:none}}
+@media (prefers-reduced-motion:reduce){.mlist li:hover{transform:none}}
+
+/* screenshot card */
+.shot-card{margin:0 0 28px;display:grid;grid-template-columns:minmax(0,230px) minmax(0,1fr);gap:22px;align-items:center;padding:16px;border-radius:26px;max-width:640px}
+.shot-card img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--edge)}
+.shot-card figcaption{color:var(--muted);line-height:1.55}
+.shot-card figcaption b{display:block;color:var(--fg);font-family:var(--font-display);font-size:1.15rem;margin-bottom:6px}
+@media (max-width:520px){.shot-card{grid-template-columns:1fr}.shot-card img{max-width:260px;margin:0 auto}}
+
 /* footer links */
 .foot-links{display:flex;flex-wrap:wrap;gap:6px 20px}
 .foot-links a{text-decoration:none;transition:color .2s}
@@ -505,6 +529,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       <a href="#sms">SMS import</a>
       <a href="#planning">Planning</a>
       <a href="#recurring">Recurring</a>
+      <a href="#smart">Smart</a>
       <a href="#roadmap">Roadmap</a>
     </nav>
     <span class="pill glass"><span class="dot"></span>Android · coming soon</span>
@@ -515,7 +540,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
     <section class="hero" aria-labelledby="h-hero">
       <div class="hero-copy">
         <div class="hero-pills">
-          <a class="pill glass announce" href="#sms"><span class="tag">Next build</span>Bank SMS import and budget forecasts
+          <a class="pill glass announce" href="#smart"><span class="tag">Next build</span>Merchant insights, SMS import and forecasts
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <span class="pill glass"><span class="dot"></span>Personal budgeting for Android</span>
@@ -532,10 +557,10 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       </div>
 
       <div class="cluster">
-        <div class="phone ph-l"><img src="img/insights.webp" width="640" height="1422" alt="Artham Insights screen with net savings, a six-month income and expense chart and spending by category"></div>
-        <div class="phone ph-r"><img src="img/budgets.webp" width="640" height="1422" alt="Artham Budgets screen with the total monthly budget and category budgets with progress bars"></div>
-        <div class="phone ph-c"><img src="img/home.webp" width="640" height="1422" alt="Artham home screen with the total available balance, income and expenses this month, and three bank accounts"></div>
-        <div class="chip glass c1"><span class="ico">%</span><span><b>86.4%</b><small>savings rate</small></span></div>
+        <div class="phone ph-l"><img src="img/insights.webp" width="640" height="1422" alt="Artham Insights screen with net savings, budget performance and a month-end spending forecast"></div>
+        <div class="phone ph-r"><img src="img/budgets.webp" width="640" height="1422" alt="Artham Budgets screen with the total monthly budget, budget alerts and category budgets with progress bars"></div>
+        <div class="phone ph-c"><img src="img/home.webp" width="640" height="1422" alt="Artham home screen with the total available balance, income and expenses this month, and four bank accounts"></div>
+        <div class="chip glass c1"><span class="ico">%</span><span><b>85.1%</b><small>savings rate</small></span></div>
         <div class="chip glass c2"><span class="ico">₹</span><span><b>All accounts</b><small>one total balance</small></span></div>
       </div>
     </section>
@@ -561,8 +586,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           </ul>
         </div>
         <div class="feat-vis glass">
-          <div class="phone"><img src="img/home.webp" width="640" height="1422" alt="Artham home screen showing ₹80700.00 total available balance, ₹50000.00 income and ₹6800.00 expenses this month"></div>
-          <div class="chip glass b"><span><small>Total balance</small><b>₹80700.00</b></span></div>
+          <div class="phone"><img src="img/home.webp" width="640" height="1422" alt="Artham home screen showing ₹280072.00 total available balance, ₹50000.00 income and ₹7428.00 expenses this month, and four bank accounts labelled by bank and last four digits"></div>
+          <div class="chip glass b"><span><small>Total balance</small><b>₹280072.00</b></span></div>
         </div>
       </article>
 
@@ -580,8 +605,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           </ul>
         </div>
         <div class="feat-vis glass">
-          <div class="phone"><img src="img/activity.webp" width="640" height="1422" alt="Artham Activity screen with a transaction summary, search bar, filters and a list of expenses such as Rent, Mobile Recharge and Uber"></div>
-          <div class="chip glass t"><span><small>Filtered to</small><b>Expenses</b></span></div>
+          <div class="phone"><img src="img/activity.webp" width="640" height="1422" alt="Artham Activity screen with a transaction summary, search bar, filters and 27 records including Swiggy Instamart and Netflix with their categories and accounts"></div>
+          <div class="chip glass t"><span><small>Transactions</small><b>27 records</b></span></div>
         </div>
       </article>
 
@@ -598,8 +623,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           </ul>
         </div>
         <div class="feat-vis glass">
-          <div class="phone"><img src="img/insights.webp" width="640" height="1422" alt="Artham Insights screen showing ₹43200.00 net savings, an income versus expenses bar chart and spending by category"></div>
-          <div class="chip glass b"><span><small>Savings rate</small><b>86.4%</b></span></div>
+          <div class="phone"><img src="img/insights.webp" width="640" height="1422" alt="Artham Insights screen showing ₹42572.00 net savings, an 85.1% savings rate, budget performance and a month-end spending forecast"></div>
+          <div class="chip glass b"><span><small>Savings rate</small><b>85.1%</b></span></div>
         </div>
       </article>
 
@@ -618,7 +643,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           </ul>
         </div>
         <div class="feat-vis glass">
-          <div class="phone"><img src="img/budgets.webp" width="640" height="1422" alt="Artham Budgets screen with a ₹25000.00 monthly budget and category budgets for Bills and Utilities, Education and Entertainment"></div>
+          <div class="phone"><img src="img/budgets.webp" width="640" height="1422" alt="Artham Budgets screen with a ₹10000.00 monthly budget, a budget alert for Health and category budgets for Bills and Utilities and Education"></div>
           <div class="chip glass t"><span><small>Bills &amp; Utilities</small><b>42.5% used</b></span></div>
         </div>
       </article>
@@ -652,6 +677,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <p class="sec-sub">Turn it on and Artham turns new bank and UPI debit and credit alerts into transactions in the background. It never reads your old messages.</p>
         <p class="notice glass"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span>Validated in the Android emulator. Physical-device testing is still pending. Google Play requires an SMS-based money-management declaration and review for this permission, and a sideloaded APK may not be allowed to hold it.</span></p>
       </div>
+      <figure class="shot-card glass" data-glow><img src="img/import-sms.webp" width="540" height="565" alt="Artham Import bank SMS screen explaining that a pasted alert is parsed on the device and the original message is not saved, with a paste box and a Parse message button"><figcaption><b>Or paste one yourself.</b>The manual import screen parses an alert on your device. You review it, then save it. The original message is never stored.</figcaption></figure>
       <div class="rec">
         <div class="demo glass sms-demo" data-glow>
           <div class="demo-top"><span class="eyebrow">Example alerts · pick one</span></div>
@@ -801,6 +827,39 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       </div>
     </section>
 
+    <section id="smart" aria-labelledby="h-smart">
+      <div class="sec-head">
+        <span class="eyebrow">Smart, and fully on your device · next build</span>
+        <h2 id="h-smart">It knows where your money goes.</h2>
+        <p class="sec-sub">Artham recognises more than 1,000 India-focused merchants from a catalogue stored in the app, ranks where you spend and notices payments that repeat. Nothing leaves your phone, and nothing changes without you.</p>
+      </div>
+      <div class="rec">
+        <div class="demo glass" data-glow>
+          <div class="demo-top"><span class="eyebrow">This month’s merchants · example</span></div>
+          <ul class="mlist">
+            <li><span class="mn">Swiggy<small>Food &amp; Dining · 9 payments</small></span><span class="mb"><i style="--w:92%"></i></span><b>₹3,420</b></li>
+            <li><span class="mn">BigBasket<small>Groceries · 4 payments</small></span><span class="mb"><i style="--w:64%"></i></span><b>₹2,380</b></li>
+            <li class="flagged"><span class="mn">Uber<small>Travel · 7 rides</small></span><span class="mb"><i style="--w:52%"></i></span><b>₹1,940</b><em>Unusual · +62%</em></li>
+            <li><span class="mn">Netflix<small>Entertainment · 1 payment</small></span><span class="mb"><i style="--w:12%"></i></span><b>₹649</b></li>
+          </ul>
+          <div class="sugg">
+            <span class="eyebrow">Pattern found · you decide</span>
+            <b>Netflix · ₹649 · monthly</b>
+            <span>Paid on 5 Aug, 5 Sep and 5 Oct. Next expected 5 Nov. Review the details, then save a schedule, or ignore it.</span>
+          </div>
+          <p class="note">Merchants and amounts are made-up examples.</p>
+        </div>
+        <div class="points">
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9M4 9v11h16V9M9 20v-6h6v6"/></svg></div><div><h3>1,075 merchants, built in</h3><p>Swiggy, BigBasket, Uber, Netflix and more are recognised in your descriptions and bank alerts, with no internet needed. Unknown merchants stay unclassified instead of being guessed.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><div><h3>Suggests, never decides</h3><p>A recognised merchant proposes a category while you type. You can change it, and your choice wins.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><div><h3>Merchant spending ranking</h3><p>See which merchants took the most this month, with their category and how many payments.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 16H3zM12 10v4M12 17v.5"/></svg></div><div><h3>Unusual-spend flags, with a high bar</h3><p>A merchant is flagged only after three payment dates across two months or more, a rise above 50% and at least ₹500 over your usual amount for the same day of the month.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></svg></div><div><h3>Spots repeating payments</h3><p>Weekly to yearly patterns need at least three similar payments. Artham prefills the schedule form for you to review, and never creates a schedule or a transaction on its own.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><div><h3>Read-only and local</h3><p>These insights only read your existing records. No new permission, no external service and no database change.</p></div></div>
+        </div>
+      </div>
+    </section>
+
     <section id="local" aria-labelledby="h-local">
       <div class="sec-head">
         <span class="eyebrow">Local-first</span>
@@ -874,6 +933,36 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           </ul>
         </div>
       </div>
+      <div class="cl">
+        <div class="col add glass" data-glow>
+          <h3><span class="badge">Added</span><span class="ct">Merchant recognition</span><span class="cd">10 Nov</span></h3>
+          <ul>
+            <li>An on-device catalogue of 1,075 India-focused merchants across eight spending categories</li>
+            <li>Whole-word alias matching, with specific names first, so Swiggy Instamart is Groceries rather than Food &amp; Dining</li>
+            <li>Category suggestions while typing an expense, which you can override</li>
+            <li>Merchant links on manual entries, reviewed SMS imports, recurring confirmations and automatic SMS imports</li>
+            <li>A Merchant field in transaction details</li>
+          </ul>
+        </div>
+        <div class="col add glass" data-glow>
+          <h3><span class="badge">Added</span><span class="ct">Merchant insights</span><span class="cd">10 Nov</span></h3>
+          <ul>
+            <li>A ranking of recognised merchants by this month’s spend, with category and payment count</li>
+            <li>Unusual-spend flags against the same day of the month in the previous three months</li>
+            <li>Flags need three payment dates across two or more months, a rise above 50% and at least ₹500 over the usual amount</li>
+            <li>Transfers, future-dated entries and unrecognised merchants are left out</li>
+          </ul>
+        </div>
+        <div class="col add glass" data-glow>
+          <h3><span class="badge">Added</span><span class="ct">Repeating-payment detection</span><span class="cd">10 Nov</span></h3>
+          <ul>
+            <li>On-device detection of likely recurring income and expenses, weekly through yearly</li>
+            <li>Needs three distinct dates, a steady cadence and similar amounts</li>
+            <li>Suggestions show the amount, account, category, count, last payment and next expected date</li>
+            <li>A pre-filled schedule form for you to edit and save. Nothing is created automatically</li>
+          </ul>
+        </div>
+      </div>
       <div class="cl two">
         <div class="col chg glass" data-glow>
           <h3><span class="badge">Changed</span></h3>
@@ -884,6 +973,9 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
             <li>The Home budget shortcut opens the full Budgets screen</li>
             <li>Activity has a shortcut to Recurring Transactions</li>
             <li>Android receiver timestamps match the way Drift stores dates</li>
+            <li>A bank alert’s payee now wins over the payment provider, so an unrelated shop paid through Amazon Pay is not mistaken for Amazon</li>
+            <li>Merchant features reuse existing database fields, so there is no schema migration</li>
+            <li>The app icon and launch screen use the pastel Artham mark, with a short animated intro</li>
           </ul>
         </div>
         <div class="col fix glass" data-glow>
@@ -898,9 +990,9 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       </div>
       <div class="verified glass">
         <span class="eyebrow">Verified</span>
-        <span>GitHub Actions passed formatting, <code>flutter analyze</code>, Flutter tests, the Android release APK build and native Kotlin tests</span>
+        <span>GitHub Actions checks formatting, <code>flutter analyze</code>, Flutter tests, the Android release build and native Kotlin tests, including merchant matching and insight thresholds</span>
         <span>The SMS flow was validated in the Android emulator: a new ₹7.00 UPI debit was imported as an expense on the matching account</span>
-        <span>Still pending: SMS validation on a physical device</span>
+        <span>Still pending: SMS validation and the Stage 6 acceptance checks on a physical device</span>
       </div>
     </section>
     <section id="roadmap" aria-labelledby="h-road">
@@ -909,9 +1001,10 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <h2 id="h-road">Where Artham is going.</h2>
       </div>
       <div class="road">
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9M4 9v11h16V9M9 20v-6h6v6"/></svg></div><h3>Merchant intelligence</h3><p>Offline merchant recognition, spending insights and repeating-payment detection.</p><span class="tagp done">Next build</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-4 3v-3H4z"/></svg></div><h3>Bank SMS import</h3><p>New bank and UPI alerts become transactions in the background, matched to your accounts by last four digits.</p><span class="tagp done">Next build</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l5-5 4 3 7-8M15 7h5v5"/></svg></div><h3>Budget planning</h3><p>Rollover, monthly templates, planned-versus-actual insights and month-end forecasts.</p><span class="tagp done">Next build</span></div>
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></svg></div><h3>Recurring transactions</h3><p>Schedules you confirm when they are due.</p><span class="tagp done">Next build</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></svg></div><h3>Recurring transactions</h3><p>Schedules you confirm when they are due, plus suggestions from detected patterns.</p><span class="tagp done">Next build</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5"/></svg></div><h3>Bank statement import</h3><p>Load transactions straight from a statement.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><h3>Database encryption</h3><p>Extra protection for the on-device database, with further security work.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div><h3>Expanded Settings</h3><p>More options beyond the SMS import controls Settings holds today.</p><span class="tagp">Planned</span></div>
@@ -963,6 +1056,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <a href="#sms">SMS import</a>
         <a href="#planning">Planning</a>
         <a href="#recurring">Recurring</a>
+        <a href="#smart">Smart</a>
         <a href="#local">Local-first</a>
         <a href="#whatsnew">What’s new</a>
         <a href="#roadmap">Roadmap</a>
