@@ -468,6 +468,13 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 @media (max-width:520px){.mlist li{grid-template-columns:1fr auto}.mb{display:none}}
 @media (prefers-reduced-motion:reduce){.mlist li:hover{transform:none}}
 
+/* screenshot card */
+.shot-card{margin:0 0 28px;display:grid;grid-template-columns:minmax(0,230px) minmax(0,1fr);gap:22px;align-items:center;padding:16px;border-radius:26px;max-width:640px}
+.shot-card img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--edge)}
+.shot-card figcaption{color:var(--muted);line-height:1.55}
+.shot-card figcaption b{display:block;color:var(--fg);font-family:var(--font-display);font-size:1.15rem;margin-bottom:6px}
+@media (max-width:520px){.shot-card{grid-template-columns:1fr}.shot-card img{max-width:260px;margin:0 auto}}
+
 /* footer links */
 .foot-links{display:flex;flex-wrap:wrap;gap:6px 20px}
 .foot-links a{text-decoration:none;transition:color .2s}
@@ -550,10 +557,10 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       </div>
 
       <div class="cluster">
-        <div class="phone ph-l"><img src="img/insights.webp" width="640" height="1422" alt="Artham Insights screen with net savings, a six-month income and expense chart and spending by category"></div>
-        <div class="phone ph-r"><img src="img/budgets.webp" width="640" height="1422" alt="Artham Budgets screen with the total monthly budget and category budgets with progress bars"></div>
-        <div class="phone ph-c"><img src="img/home.webp" width="640" height="1422" alt="Artham home screen with the total available balance, income and expenses this month, and three bank accounts"></div>
-        <div class="chip glass c1"><span class="ico">%</span><span><b>86.4%</b><small>savings rate</small></span></div>
+        <div class="phone ph-l"><img src="img/insights.webp" width="640" height="1422" alt="Artham Insights screen with net savings, budget performance and a month-end spending forecast"></div>
+        <div class="phone ph-r"><img src="img/budgets.webp" width="640" height="1422" alt="Artham Budgets screen with the total monthly budget, budget alerts and category budgets with progress bars"></div>
+        <div class="phone ph-c"><img src="img/home.webp" width="640" height="1422" alt="Artham home screen with the total available balance, income and expenses this month, and four bank accounts"></div>
+        <div class="chip glass c1"><span class="ico">%</span><span><b>85.1%</b><small>savings rate</small></span></div>
         <div class="chip glass c2"><span class="ico">₹</span><span><b>All accounts</b><small>one total balance</small></span></div>
       </div>
     </section>
@@ -579,8 +586,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           </ul>
         </div>
         <div class="feat-vis glass">
-          <div class="phone"><img src="img/home.webp" width="640" height="1422" alt="Artham home screen showing ₹80700.00 total available balance, ₹50000.00 income and ₹6800.00 expenses this month"></div>
-          <div class="chip glass b"><span><small>Total balance</small><b>₹80700.00</b></span></div>
+          <div class="phone"><img src="img/home.webp" width="640" height="1422" alt="Artham home screen showing ₹280072.00 total available balance, ₹50000.00 income and ₹7428.00 expenses this month, and four bank accounts labelled by bank and last four digits"></div>
+          <div class="chip glass b"><span><small>Total balance</small><b>₹280072.00</b></span></div>
         </div>
       </article>
 
@@ -598,8 +605,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           </ul>
         </div>
         <div class="feat-vis glass">
-          <div class="phone"><img src="img/activity.webp" width="640" height="1422" alt="Artham Activity screen with a transaction summary, search bar, filters and a list of expenses such as Rent, Mobile Recharge and Uber"></div>
-          <div class="chip glass t"><span><small>Filtered to</small><b>Expenses</b></span></div>
+          <div class="phone"><img src="img/activity.webp" width="640" height="1422" alt="Artham Activity screen with a transaction summary, search bar, filters and 27 records including Swiggy Instamart and Netflix with their categories and accounts"></div>
+          <div class="chip glass t"><span><small>Transactions</small><b>27 records</b></span></div>
         </div>
       </article>
 
@@ -616,8 +623,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           </ul>
         </div>
         <div class="feat-vis glass">
-          <div class="phone"><img src="img/insights.webp" width="640" height="1422" alt="Artham Insights screen showing ₹43200.00 net savings, an income versus expenses bar chart and spending by category"></div>
-          <div class="chip glass b"><span><small>Savings rate</small><b>86.4%</b></span></div>
+          <div class="phone"><img src="img/insights.webp" width="640" height="1422" alt="Artham Insights screen showing ₹42572.00 net savings, an 85.1% savings rate, budget performance and a month-end spending forecast"></div>
+          <div class="chip glass b"><span><small>Savings rate</small><b>85.1%</b></span></div>
         </div>
       </article>
 
@@ -636,7 +643,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           </ul>
         </div>
         <div class="feat-vis glass">
-          <div class="phone"><img src="img/budgets.webp" width="640" height="1422" alt="Artham Budgets screen with a ₹25000.00 monthly budget and category budgets for Bills and Utilities, Education and Entertainment"></div>
+          <div class="phone"><img src="img/budgets.webp" width="640" height="1422" alt="Artham Budgets screen with a ₹10000.00 monthly budget, a budget alert for Health and category budgets for Bills and Utilities and Education"></div>
           <div class="chip glass t"><span><small>Bills &amp; Utilities</small><b>42.5% used</b></span></div>
         </div>
       </article>
@@ -670,6 +677,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <p class="sec-sub">Turn it on and Artham turns new bank and UPI debit and credit alerts into transactions in the background. It never reads your old messages.</p>
         <p class="notice glass"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span>Validated in the Android emulator. Physical-device testing is still pending. Google Play requires an SMS-based money-management declaration and review for this permission, and a sideloaded APK may not be allowed to hold it.</span></p>
       </div>
+      <figure class="shot-card glass" data-glow><img src="img/import-sms.webp" width="540" height="565" alt="Artham Import bank SMS screen explaining that a pasted alert is parsed on the device and the original message is not saved, with a paste box and a Parse message button"><figcaption><b>Or paste one yourself.</b>The manual import screen parses an alert on your device. You review it, then save it. The original message is never stored.</figcaption></figure>
       <div class="rec">
         <div class="demo glass sms-demo" data-glow>
           <div class="demo-top"><span class="eyebrow">Example alerts · pick one</span></div>
