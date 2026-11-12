@@ -13,7 +13,7 @@
 
 Artham shows every account as one balance, records each rupee as it moves, and keeps every category inside its limit. The name is Malayalam for *meaning*.
 
-This repository holds the landing page. It shows the app's Home, Activity, Insights and Budgets screens, with sections for automatic bank SMS import (with an interactive example), budget planning (including an interactive forecast example), recurring transactions, the local-first design, the latest changelog entries and the roadmap. Light and dark themes follow the visitor's device setting.
+This repository holds the landing page. It showcases the app's Home, Activity, Insights and Budgets screens, with sections for user-initiated bank/UPI SMS paste-and-share import, custom categories, transaction date and time, budget planning and forecasts, recurring transactions, offline merchant recognition and spending insights, CSV/JSON export, local backup history and the roadmap. The page uses light and dark themes based on the visitor's device setting.
 
 The app itself lives in [vishnuwiz/artham](https://github.com/vishnuwiz/artham). The content sections are written from that repository's README and `CHANGELOG.md`.
 
@@ -42,14 +42,17 @@ python3 -m http.server 8000
 
 When the app repository gets a new README or changelog entry, update these sections in `index.html`:
 
-- **Budget planning, Recurring, Local-first:** the feature descriptions.
-- **What's new:** the Added, Changed and Fixed lists, copied from the `[Unreleased]` or latest release entry.
-- **Roadmap:** the Planned list in the app README.
-- **Screenshots:** replace the files in `img/` using the same names and keep the 9:20 ratio. The Insights and Budgets screens predate budget planning and forecasts, so new screenshots will show them.
+- **Feature details:** keep the Home, Activity, Insights and Budgets descriptions aligned with implemented app behaviour.
+- **Custom categories and transaction date/time:** keep the feature tiles and examples current.
+- **SMS import and privacy:** describe only user-initiated paste/share import; do not imply inbox monitoring or automatic SMS intake.
+- **Local-first and backups:** keep CSV/JSON export, backup history, restore, retention and encryption notes accurate.
+- **What's new:** add the latest Added and Changed items from the app changelog, and refresh the verification note from actual test/device results.
+- **Roadmap:** move implemented features out of Planned and update the status labels.
+- **Screenshots:** replace files in `img/` using the same names and keep the 9:20 ratio. Use current app screens when available.
 
 ## Other things to edit
 
-- **Download button.** The nav and the last section show "Android · coming soon". Search `index.html` for `coming soon` and replace those pills with a link to the Play Store or APK page.
+- **Download button.** The nav and the final section link to Firebase App Distribution for the Android beta. Replace that URL with the Play Store listing when a public release is available.
 - **GitHub links.** The "Built in the open" section links to the app repository, its changelog and its issues page.
 - **Colours and fonts.** Every colour is a CSS variable at the top of the `<style>` block, with a dark set and a light set.
 - **Share preview.** `img/social-preview.png` is also set as the Open Graph image. Upload it under **Settings → General → Social preview** too.

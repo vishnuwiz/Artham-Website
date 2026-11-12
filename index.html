@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Artham</title>
-<meta name="description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, import pasted bank SMS alerts, export your data, recognise 1,000+ merchants offline, plan budgets with rollover and forecasts, schedule recurring transactions and keep every category inside its limit.">
+<meta name="description" content="Artham is a local-first personal finance app for Android. Track every account and transaction, set precise transaction dates and times, create custom categories, import bank alerts only when you paste or share them, recognise 1,000+ merchants offline, plan budgets, manage recurring payments, export CSV and JSON, and restore local backups.">
 <meta name="theme-color" content="#17132a">
 <meta property="og:title" content="Artham">
-<meta property="og:description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, import pasted bank SMS alerts, export your data, recognise 1,000+ merchants offline, plan budgets with rollover and forecasts, schedule recurring transactions and keep every category inside its limit.">
+<meta property="og:description" content="Artham is a local-first personal finance app for Android. Track every account and transaction, set precise transaction dates and times, create custom categories, import bank alerts only when you paste or share them, recognise 1,000+ merchants offline, plan budgets, manage recurring payments, export CSV and JSON, and restore local backups.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://vishnuwiz.github.io/Artham-Website/img/social-preview.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -603,7 +603,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Add Transaction button always within reach</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Search, filter and sort your transactions</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>A shortcut to Recurring Transactions</li>
-            <li><svg aria-hidden="true"><use href="#tick"/></svg>Bank SMS alerts imported for you, or pasted in by hand</li>
+            <li><svg aria-hidden="true"><use href="#tick"/></svg>Paste or share a bank or UPI alert, review it and confirm before saving</li>
             <li><svg aria-hidden="true"><use href="#tick"/></svg>Net movement “based on current filters”</li>
           </ul>
         </div>
@@ -668,6 +668,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <div class="tile glass" data-glow><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 20V11M12 20V5M18 20v-6"/></svg></div><h3>Six-month view</h3><p>Income and expenses for the last six months, side by side.</p></div>
         <div class="tile glass" data-glow><div class="ico">%</div><h3>Savings rate</h3><p>One number for how much of this month’s income you kept.</p></div>
         <div class="tile glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18"/></svg></div><h3>Bank and last four</h3><p>Accounts read “Federal Bank · •••• 1255” everywhere, with no nickname to maintain.</p></div>
+        <div class="tile glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></div><h3>Transaction date &amp; time</h3><p>Set or edit the exact date and time for income, expenses and transfers. The saved time appears in transaction details.</p></div>
+        <div class="tile glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><path d="M15 16h4M17 14v4"/></svg></div><h3>Custom categories</h3><p>Start with 27 built-in categories. Add, rename, recolour, hide or restore income and expense categories while keeping their history.</p></div>
         <div class="tile glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></div><h3>No double entries</h3><p>The same SMS alert or recurring occurrence is never recorded twice.</p></div>
         <div class="tile glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="12" height="16" rx="2"/><path d="M9 5V4h6v1M9 11h6M9 15h4"/></svg></div><h3>Paste or share an alert</h3><p>Bring in a bank or UPI alert by hand, review the parsed fields, then save.</p></div>
       </div>
@@ -840,8 +842,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <div class="demo glass" data-glow>
           <div class="demo-top"><span class="eyebrow">This month’s merchants · example</span></div>
           <ul class="mlist">
-            <li><span class="mn">Swiggy<small>Food &amp; Dining · 9 payments</small></span><span class="mb"><i style="--w:92%"></i></span><b>₹3,420</b></li>
-            <li><span class="mn">BigBasket<small>Groceries · 4 payments</small></span><span class="mb"><i style="--w:64%"></i></span><b>₹2,380</b></li>
+            <li><span class="mn">Swiggy<small>Restaurants · 9 payments</small></span><span class="mb"><i style="--w:92%"></i></span><b>₹3,420</b></li>
+            <li><span class="mn">BigBasket<small>Food &amp; Grocery · 4 payments</small></span><span class="mb"><i style="--w:64%"></i></span><b>₹2,380</b></li>
             <li class="flagged"><span class="mn">Uber<small>Travel · 7 rides</small></span><span class="mb"><i style="--w:52%"></i></span><b>₹1,940</b><em>Unusual · +62%</em></li>
             <li><span class="mn">Netflix<small>Entertainment · 1 payment</small></span><span class="mb"><i style="--w:12%"></i></span><b>₹649</b></li>
           </ul>
@@ -879,8 +881,9 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></div><div><h3>Stored on the device</h3><p>Artham keeps its data in an SQLite database on your phone, managed with Drift.</p></div></div>
           <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><div><h3>Exact to the paisa</h3><p>Amounts are saved as whole paise, so floating-point rounding never creeps into your balances.</p></div></div>
           <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.2 8.5-7 10-3.8-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h3>Upgrades keep your records</h3><p>Database migrations are written to preserve existing data. The latest upgrades kept existing transactions and budgets intact.</p></div></div>
-          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-4 3v-3H4z"/></svg></div><div><h3>Alerts, not messages</h3><p>Imported SMS alerts are saved as structured transaction fields. The original message text is never stored.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-4 3v-3H4z"/></svg></div><div><h3>Alerts, not messages</h3><p>Only bank or UPI alerts you paste or share are processed. Artham saves structured transaction fields, never the original message text, and does not scan your inbox.</p></div></div>
           <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></div><div><h3>Export, locally</h3><p>Settings can share your transactions as a CSV or save a JSON backup of every table. Files are made on the device and not uploaded. JSON backups are unencrypted, so store them securely.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M6 4h12M6 11h12M6 15h8M6 19h12"/><circle cx="18" cy="15" r="2.5"/></svg></div><div><h3>Backup history</h3><p>Choose optional daily, weekly or monthly local backups, create a manual copy, and restore or delete saved backups from Settings. Keep 5, 10 or 20 automatic backups. The schedule is checked when you open or return to Artham, not by an operating-system background task. Backups stay on the device and are unencrypted.</p></div></div>
           <p class="fine">Database encryption and other security improvements are planned.</p>
         </div>
       </div>
@@ -896,19 +899,49 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
     <section id="whatsnew" aria-labelledby="h-new">
       <div class="sec-head">
-        <span class="eyebrow">From the changelog</span>
+        <span class="eyebrow">From the app changelog</span>
         <h2 id="h-new">What’s new in the beta.</h2>
-        <p class="sec-sub">Everything below is listed as Unreleased in the project changelog. Version and build numbers are added once a release is confirmed.</p>
+        <p class="sec-sub">A look at the latest features and improvements in the Artham beta. Version and build numbers will be added when a release is confirmed.</p>
+      </div>
+      <div class="cl">
+        <div class="col add glass" data-glow>
+          <h3><span class="badge">Added</span><span class="ct">Transaction date &amp; time</span><span class="cd">12 Nov</span></h3>
+          <ul>
+            <li>Set or edit the date and time for income, expense and internal transfer records</li>
+            <li>Keep the selected time when changing the transaction date</li>
+            <li>See the saved time beside the date in transaction details</li>
+            <li>Uses the existing transaction timestamp, so no database migration is needed</li>
+          </ul>
+        </div>
+        <div class="col add glass" data-glow>
+          <h3><span class="badge">Added</span><span class="ct">Custom categories</span><span class="cd">12 Nov</span></h3>
+          <ul>
+            <li>Manage expense and income categories in Settings &gt; Categories</li>
+            <li>Start with 27 built-in categories, each with an icon and colour</li>
+            <li>Add your own categories, rename or recolour them, and hide or restore categories</li>
+            <li>Categories still used by transactions, budgets, schedules or merchants are hidden rather than deleted, preserving their history</li>
+          </ul>
+        </div>
+        <div class="col add glass" data-glow>
+          <h3><span class="badge">Added</span><span class="ct">Local backup history</span><span class="cd">11 Nov</span></h3>
+          <ul>
+            <li>Optional automatic backups on a daily, weekly or monthly schedule, checked when Artham opens or resumes</li>
+            <li>Create manual backups and review automatic, manual and pre-restore safety copies</li>
+            <li>Restore or delete a saved backup from Settings</li>
+            <li>Choose to retain 5, 10 or 20 automatic backups</li>
+            <li>Backups remain in app storage on the device and are not encrypted</li>
+          </ul>
+        </div>
       </div>
       <div class="cl">
         <div class="col add glass" data-glow>
           <h3><span class="badge">Added</span><span class="ct">Local data export</span><span class="cd">11 Nov</span></h3>
           <ul>
-            <li>A transaction CSV with account, transfer destination, category, merchant, reference, notes, source, date and amount</li>
-            <li>A structured JSON backup of every Drift table, plus any legacy pending-SMS review rows</li>
-            <li>Share from Settings, or use separate Save As actions to pick a folder such as Downloads</li>
+            <li>Export transaction history as an Excel-friendly CSV with account, category, merchant, reference, notes, source, date and amount</li>
+            <li>Create a structured JSON backup of the local database tables</li>
+            <li>Share exports or use Save As to choose a folder such as Downloads</li>
             <li>CSV formula-injection protection and a UTF-8 BOM for spreadsheet compatibility</li>
-            <li>Generated on the device, with no upload. JSON backups are unencrypted, and restore is not included yet</li>
+            <li>Files are generated on the device; JSON backups are unencrypted and should be stored securely</li>
           </ul>
         </div>
         <div class="col add glass" data-glow>
@@ -918,49 +951,46 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
             <li>Recurring monthly budget templates, with pause and resume</li>
             <li>Missing months filled from templates, never overwriting an existing budget</li>
             <li>A planned-versus-actual dashboard for the overall budget and each category</li>
-            <li>A six-month planned-versus-actual trend chart</li>
-            <li>Month-end forecasts from the current daily spending pace</li>
-            <li>Budget risk indicators and daily spending recommendations</li>
+            <li>A six-month trend, month-end forecasts, budget risk indicators and daily spending guidance</li>
           </ul>
         </div>
         <div class="col add glass" data-glow>
           <h3><span class="badge">Added</span><span class="ct">Recurring transactions</span></h3>
           <ul>
-            <li>Schedules for income and expenses: daily, weekly, monthly or yearly, with custom intervals</li>
-            <li>Start dates and optional end dates</li>
-            <li>Pause, resume and delete, plus review and confirmation of what is due</li>
-            <li>A Recurring Transactions screen, reached from Activity</li>
-            <li>Recurring entries in Activity history, with a source marker</li>
+            <li>Income and expense schedules: daily, weekly, monthly or yearly, with custom intervals</li>
+            <li>Start dates and optional end dates; pause, resume or delete a schedule</li>
+            <li>Review due occurrences and confirm before a transaction is added to Activity</li>
+            <li>Suggestions for likely repeating payments, with details for you to review and save</li>
+            <li>Duplicate protection for the same schedule occurrence</li>
           </ul>
         </div>
       </div>
       <div class="cl">
         <div class="col add glass" data-glow>
-          <h3><span class="badge">Added</span><span class="ct">Merchant recognition</span><span class="cd">10 Nov</span></h3>
+          <h3><span class="badge">Added</span><span class="ct">Offline merchant recognition</span><span class="cd">10 Nov</span></h3>
           <ul>
-            <li>An on-device catalogue of 1,075 India-focused merchants across eight spending categories</li>
-            <li>Whole-word alias matching, with specific names first, so Swiggy Instamart is Groceries rather than Food &amp; Dining</li>
-            <li>Category suggestions while typing an expense, which you can override</li>
-            <li>Merchant links on manual entries, reviewed SMS imports and recurring confirmations</li>
-            <li>A Merchant field in transaction details</li>
+            <li>An on-device catalogue of more than 1,000 India-focused merchants</li>
+            <li>Category suggestions while entering an expense, which you can override</li>
+            <li>Merchant links on transactions and reviewed manual SMS imports</li>
+            <li>Unknown merchants stay unclassified instead of being guessed</li>
           </ul>
         </div>
         <div class="col add glass" data-glow>
-          <h3><span class="badge">Added</span><span class="ct">Merchant insights</span><span class="cd">10 Nov</span></h3>
+          <h3><span class="badge">Added</span><span class="ct">Merchant spending insights</span><span class="cd">10 Nov</span></h3>
           <ul>
-            <li>A ranking of recognised merchants by this month’s spend, with category and payment count</li>
-            <li>Unusual-spend flags against the same day of the month in the previous three months</li>
-            <li>Flags need three payment dates across two or more months, a rise above 50% and at least ₹500 over the usual amount</li>
-            <li>Transfers, future-dated entries and unrecognised merchants are left out</li>
+            <li>Rank recognised merchants by current-month spend, category and payment count</li>
+            <li>Compare spending with the same day of the month in the previous three completed months</li>
+            <li>Use a high bar before flagging: sufficient history, a rise over 50% and at least ₹500 above the usual amount</li>
+            <li>Transfers, future-dated entries and unrecognised merchants are excluded</li>
           </ul>
         </div>
         <div class="col add glass" data-glow>
           <h3><span class="badge">Added</span><span class="ct">Repeating-payment detection</span><span class="cd">10 Nov</span></h3>
           <ul>
-            <li>On-device detection of likely recurring income and expenses, weekly through yearly</li>
-            <li>Needs three distinct dates, a steady cadence and similar amounts</li>
-            <li>Suggestions show the amount, account, category, count, last payment and next expected date</li>
-            <li>A pre-filled schedule form for you to edit and save. Nothing is created automatically</li>
+            <li>Detect likely recurring income and expenses from at least three similar local transactions</li>
+            <li>Recognise steady weekly through yearly patterns</li>
+            <li>Review the suggested amount, account, category, frequency and next expected date</li>
+            <li>Nothing is scheduled or posted without your action</li>
           </ul>
         </div>
       </div>
@@ -968,35 +998,26 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <div class="col chg glass" data-glow>
           <h3><span class="badge">Changed</span></h3>
           <ul>
-            <li>Accounts show as bank name plus masked last four digits everywhere, and the separate nickname field is gone</li>
-            <li>The app is named Artham across Android, iOS and Web</li>
-            <li>Database schema upgraded to version 4, with new BudgetTemplates and RecurringSchedules tables and existing records preserved</li>
-            <li>The Home budget shortcut opens the full Budgets screen</li>
-            <li>Activity has a shortcut to Recurring Transactions</li>
-                        <li>A bank alert’s payee now wins over the payment provider, so an unrelated shop paid through Amazon Pay is not mistaken for Amazon</li>
-            <li>Merchant features reuse existing database fields, so there is no schema migration</li>
-            <li>Automatic Android SMS intake is removed. Import is manual only, through Activity &gt; Import SMS, with editable review, duplicate detection and merchant recognition kept</li>
-            <li>A dark glass look across every screen, with a floating glass tab bar, red debits and mint income</li>
-            <li>Beta launcher icons for Android and iOS, with adaptive Android layers, and matching lavender launch screens</li>
-            <li>A new animated startup with the pastel A and rupee coin, a BETA ribbon, the Malayalam wordmark and a tagline</li>
-            <li>Existing SMS fingerprints stay in the database. No migration is needed and no transactions are deleted</li>
+            <li>SMS import is user-initiated only: paste or share one alert, review its parsed fields and confirm. Artham does not request SMS permissions or scan the inbox</li>
+            <li>Bank accounts use the bank name and masked last four digits throughout the app</li>
+            <li>Database schema version 5 adds custom-category metadata while preserving existing transactions, budgets and schedules</li>
+            <li>A dark glass interface, refreshed beta launcher artwork and an animated pastel A and rupee startup screen</li>
           </ul>
         </div>
         <div class="col fix glass" data-glow>
-          <h3><span class="badge">Fixed</span></h3>
+          <h3><span class="badge">Privacy &amp; data</span></h3>
           <ul>
-            <li>Imported SMS transactions show the right date instead of one thousands of years ahead</li>
-            <li>An Android SQLite timeout setting no longer throws an exception</li>
-            <li>No more duplicate transactions for the same recurring occurrence</li>
-            <li>Existing transaction records are preserved through the schema migration</li>
+            <li>SMS text is not retained; only structured fields from a message you choose to share or paste are processed</li>
+            <li>Merchant recognition and spending analysis run locally against your existing records</li>
+            <li>CSV and JSON exports are generated on the device, not uploaded to a server</li>
+            <li>Local JSON backups are unencrypted; keep backup files and your device secure</li>
           </ul>
         </div>
       </div>
       <div class="verified glass">
-        <span class="eyebrow">Verified</span>
-        <span>GitHub Actions checks formatting, <code>flutter analyze</code>, Flutter tests, the Android release build and native Kotlin tests, including merchant matching and insight thresholds</span>
-        <span>Android manifest permission and receiver audit, Flutter analysis, tests and a debug APK build are required before each merge</span>
-        <span>Still pending: a device check that Activity &gt; Import SMS parses a message you select, and the Stage 6 acceptance checks on a physical device</span>
+        <span class="eyebrow">Latest verification</span>
+        <span><code>flutter analyze</code> completed with no issues, and all 126 automated tests passed</span>
+        <span>The updated Android release APK built successfully and was installed and checked on an Android phone, including transaction time entry, editing and details</span>
       </div>
     </section>
     <section id="roadmap" aria-labelledby="h-road">
@@ -1009,10 +1030,10 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-4 3v-3H4z"/></svg></div><h3>Manual SMS import</h3><p>Paste or share a bank or UPI alert, review the parsed fields and save, with local duplicate protection.</p><span class="tagp done">In beta</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l5-5 4 3 7-8M15 7h5v5"/></svg></div><h3>Budget planning</h3><p>Rollover, monthly templates, planned-versus-actual insights and month-end forecasts.</p><span class="tagp done">In beta</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></svg></div><h3>Recurring transactions</h3><p>Schedules you confirm when they are due, plus suggestions from detected patterns.</p><span class="tagp done">In beta</span></div>
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></div><h3>Data export</h3><p>Share transactions as CSV or save a JSON backup. Restoring a backup is planned.</p><span class="tagp done">In beta</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></div><h3>Export &amp; backup management</h3><p>Export CSV or JSON, create local backups, review history, restore or delete copies, and manage automatic backup retention.</p><span class="tagp done">In beta</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5"/></svg></div><h3>Bank statement import</h3><p>Load transactions straight from a statement.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><h3>Database encryption</h3><p>Extra protection for the on-device database, with further security work.</p><span class="tagp">Planned</span></div>
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div><h3>Expanded Settings</h3><p>More options beyond the data export actions Settings holds today.</p><span class="tagp">Planned</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div><h3>Expanded Settings</h3><p>More account, privacy and personalisation controls beyond Categories and backup management.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg></div><h3>Faster everywhere</h3><p>Further performance improvements across the app.</p><span class="tagp">Planned</span></div>
       </div>
     </section>
