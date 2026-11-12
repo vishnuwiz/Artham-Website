@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Artham</title>
-<meta name="description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, import bank SMS alerts on Android, recognise 1,000+ merchants offline, plan budgets with rollover and forecasts, schedule recurring transactions and keep every category inside its limit.">
+<meta name="description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, import pasted bank SMS alerts, export your data, recognise 1,000+ merchants offline, plan budgets with rollover and forecasts, schedule recurring transactions and keep every category inside its limit.">
 <meta name="theme-color" content="#17132a">
 <meta property="og:title" content="Artham">
-<meta property="og:description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, import bank SMS alerts on Android, recognise 1,000+ merchants offline, plan budgets with rollover and forecasts, schedule recurring transactions and keep every category inside its limit.">
+<meta property="og:description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, import pasted bank SMS alerts, export your data, recognise 1,000+ merchants offline, plan budgets with rollover and forecasts, schedule recurring transactions and keep every category inside its limit.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://vishnuwiz.github.io/Artham-Website/img/social-preview.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -217,6 +217,10 @@ h2{font-weight:700;font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.06;letter-sp
 .soon-copy p{color:var(--muted);font-size:1.1rem;max-width:32em}
 @media (max-width:700px){.soon{grid-template-columns:1fr;padding:32px 24px;gap:28px;justify-items:start;border-radius:34px}}
 
+.dl-note{font-size:.92rem !important;color:var(--muted)}
+.pill.dl{text-decoration:none;color:var(--fg);transition:transform .25s,border-color .25s}
+.pill.dl:hover{transform:translateY(-2px);border-color:var(--edge-hi)}
+
 /* footer */
 footer{padding-block:12px 36px}
 .foot{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between;padding:16px 22px;border-radius:26px;color:var(--muted);font-size:.92rem}
@@ -370,8 +374,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
 /* roadmap */
 .road{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;padding-block:28px 56px}
-.rc{grid-column:span 3;padding:24px;border-radius:26px;display:flex;flex-direction:column;gap:12px;align-items:flex-start;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s}
-.rc:nth-child(-n+3){grid-column:span 4}
+.rc{grid-column:span 4;padding:24px;border-radius:26px;display:flex;flex-direction:column;gap:12px;align-items:flex-start;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s}
 .rc:hover{transform:translateY(-6px);border-color:var(--edge-hi)}
 .rc h3{font-size:1.2rem;font-weight:700;letter-spacing:-.015em;line-height:1.2}
 .rc p{color:var(--muted);font-size:1rem;flex:1}
@@ -532,7 +535,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       <a href="#smart">Smart</a>
       <a href="#roadmap">Roadmap</a>
     </nav>
-    <span class="pill glass"><span class="dot"></span>Android · coming soon</span>
+    <a class="pill glass dl" href="https://appdistribution.firebase.google.com/testerapps/1:245459198682:android:d18a49369b4fc031f13be3/releases/285gbghiomq70?utm_source=firebase-console" target="_blank" rel="noopener"><span class="dot"></span>Download beta</a>
   </header>
 
   <main id="top">
@@ -540,7 +543,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
     <section class="hero" aria-labelledby="h-hero">
       <div class="hero-copy">
         <div class="hero-pills">
-          <a class="pill glass announce" href="#smart"><span class="tag">Next build</span>Merchant insights, SMS import and forecasts
+          <a class="pill glass announce" href="#get"><span class="tag">Beta</span>The Android beta is ready to download
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <span class="pill glass"><span class="dot"></span>Personal budgeting for Android</span>
@@ -548,10 +551,10 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <h1 id="h-hero">Your money, <em>under control.</em></h1>
         <p class="lede">Artham shows every account as one balance, records each rupee as it moves, and keeps every category inside its limit.</p>
         <div class="cta-row">
-          <a class="btn btn-main" href="#features">See how it works
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <a class="btn btn-main" href="https://appdistribution.firebase.google.com/testerapps/1:245459198682:android:d18a49369b4fc031f13be3/releases/285gbghiomq70?utm_source=firebase-console" target="_blank" rel="noopener">Download beta
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
           </a>
-          <a class="btn btn-glass glass" href="#name">Why “Artham”?</a>
+          <a class="btn btn-glass glass" href="#features">See how it works</a>
         </div>
         <p class="ml-note"><span>അർത്ഥം</span> is the Malayalam word for meaning.</p>
       </div>
@@ -672,12 +675,12 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
     <section id="sms" aria-labelledby="h-sms">
       <div class="sec-head">
-        <span class="eyebrow">Bank SMS import · next build</span>
-        <h2 id="h-sms">Your bank alerts, filed for you.</h2>
-        <p class="sec-sub">Turn it on and Artham turns new bank and UPI debit and credit alerts into transactions in the background. It never reads your old messages.</p>
-        <p class="notice glass"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span>Validated in the Android emulator. Physical-device testing is still pending. Google Play requires an SMS-based money-management declaration and review for this permission, and a sideloaded APK may not be allowed to hold it.</span></p>
+        <span class="eyebrow">Manual SMS import · in beta</span>
+        <h2 id="h-sms">Paste a bank alert. Review it. Save it.</h2>
+        <p class="sec-sub">In Activity, choose Import SMS, then paste or share a single bank or UPI alert. Artham parses it on your device and you confirm the result before anything is saved.</p>
+        <p class="notice glass"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span>Artham does not request the RECEIVE_SMS or READ_SMS permissions, does not register an incoming-SMS receiver and does not scan your inbox. Only a message you paste or share is processed.</span></p>
       </div>
-      <figure class="shot-card glass" data-glow><img src="img/import-sms.webp" width="540" height="565" alt="Artham Import bank SMS screen explaining that a pasted alert is parsed on the device and the original message is not saved, with a paste box and a Parse message button"><figcaption><b>Or paste one yourself.</b>The manual import screen parses an alert on your device. You review it, then save it. The original message is never stored.</figcaption></figure>
+      <figure class="shot-card glass" data-glow><img src="img/import-sms.webp" width="540" height="565" alt="Artham Import bank SMS screen explaining that a pasted alert is parsed on the device and the original message is not saved, with a paste box and a Parse message button"><figcaption><b>The Import bank SMS screen.</b>Paste an alert and tap Parse message. The alert is parsed on your device, you review and edit the fields, then save. The original message is never stored.</figcaption></figure>
       <div class="rec">
         <div class="demo glass sms-demo" data-glow>
           <div class="demo-top"><span class="eyebrow">Example alerts · pick one</span></div>
@@ -694,15 +697,15 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
             <ol class="flow">
               <li><small>Parsed</small><b>₹7.00 debit</b><span>10 Nov 2026 · UPI ref</span></li>
               <li><small>Matched</small><b>Federal Bank · •••• 1255</b><span>by last four digits</span></li>
-              <li class="res"><small>Result</small><b>Saved</b><span>As a Food &amp; Dining expense</span></li>
+              <li class="res"><small>Result</small><b>Ready to save</b><span>Review, then confirm</span></li>
             </ol>
           </div>
           <div class="scn s2">
             <div class="bubble"><small>Bank alert · SMS</small>Rs 1250.00 debited from A/c XX9999 on 10-11-26 to shop@upi. UPI Ref 210987654321.</div>
             <ol class="flow">
               <li><small>Parsed</small><b>₹1250.00 debit</b><span>10 Nov 2026 · UPI ref</span></li>
-              <li><small>Matched</small><b>No saved account ends in 9999</b><span>Artham does not guess</span></li>
-              <li class="res warn"><small>Result</small><b>Waits for you</b><span>In Settings, where you choose the account</span></li>
+              <li><small>Matched</small><b>No saved account ends in 9999</b><span>Nothing is guessed</span></li>
+              <li class="res warn"><small>Result</small><b>You choose</b><span>Pick the account while you review</span></li>
             </ol>
           </div>
           <div class="scn s3">
@@ -710,7 +713,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
             <ol class="flow">
               <li><small>Parsed</small><b>₹320.00 debit</b><span>10 Nov 2026 · UPI ref</span></li>
               <li><small>Matched</small><b>No account in the alert</b><span>Nothing to match on</span></li>
-              <li class="res warn"><small>Result</small><b>Default account</b><span>Uses the optional default you set in Settings</span></li>
+              <li class="res warn"><small>Result</small><b>You choose</b><span>Pick the account while you review</span></li>
             </ol>
           </div>
           <div class="scn s4">
@@ -721,23 +724,23 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
               <li class="res skip"><small>Result</small><b>Skipped</b><span>Never recorded twice</span></li>
             </ol>
           </div>
-          <p class="note">These alerts are made up. Automatic import is opt-in and needs the Android SMS permission.</p>
+          <p class="note">These alerts are made up. Manual import needs no SMS permission.</p>
         </div>
 
         <div class="points">
-          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="4"/><circle cx="16" cy="12" r="2"/></svg></div><div><h3>Opt in, on your terms</h3><p>Automatic import stays off until you enable it in Settings, read the disclosure and grant the Android SMS permission.</p></div></div>
-          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-4 3v-3H4z"/></svg></div><div><h3>Listens, never scans</h3><p>Only newly received alerts are handled. Artham does not read your existing inbox and does not ask for the READ_SMS permission.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="4"/><circle cx="16" cy="12" r="2"/></svg></div><div><h3>Only what you share</h3><p>Nothing is imported unless you paste or share an alert yourself. There is no background listener and no automatic import.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-4 3v-3H4z"/></svg></div><div><h3>No SMS permissions</h3><p>Artham does not ask for RECEIVE_SMS or READ_SMS, and it never scans your message inbox. This holds on both Android and iOS.</p></div></div>
           <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4L7 20M17 4l-2 16M4 9h16M3 15h16"/></svg></div><div><h3>Matched by last four digits</h3><p>The suffix in the alert, such as A/c XX1255, finds your saved account. An unknown or ambiguous suffix is never guessed.</p></div></div>
-          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13l2-8h12l2 8M4 13v6h16v-6M4 13h5l1 2h4l1-2h5"/></svg></div><div><h3>A review queue, not a guess</h3><p>Alerts that cannot be matched safely wait in Settings, where you assign an account. You can also set an optional default account.</p></div></div>
-          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.2 8.5-7 10-3.8-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h3>Private by design</h3><p>The original SMS text is not kept. Artham saves structured fields only, and checks for duplicates before it saves.</p></div></div>
-          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg></div><div><h3>Manual fallback</h3><p>Paste or share an alert, review and edit the parsed fields, then import. On iOS this is the only route, because apps cannot read the Messages inbox.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13l2-8h12l2 8M4 13v6h16v-6M4 13h5l1 2h4l1-2h5"/></svg></div><div><h3>You confirm every import</h3><p>The parsed amount, date, account and category appear in an editable review. Nothing is saved until you confirm.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.2 8.5-7 10-3.8-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h3>Private by design</h3><p>The original SMS text is not kept. Artham saves structured fields only, and recognises merchants and categories on the device.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg></div><div><h3>Duplicates are caught</h3><p>Local fingerprints stop the same alert being imported twice, and older fingerprints are kept so earlier imports stay protected.</p></div></div>
         </div>
       </div>
     </section>
 
     <section id="planning" aria-labelledby="h-plan">
       <div class="sec-head">
-        <span class="eyebrow">Budget planning · next build</span>
+        <span class="eyebrow">Budget planning · in beta</span>
         <h2 id="h-plan">Plan the month. See it coming.</h2>
         <p class="sec-sub">Carry unused money forward, repeat your limits every month, compare plan with reality, and get a forecast before the month is over.</p>
       </div>
@@ -781,7 +784,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
     <section id="recurring" aria-labelledby="h-rec">
       <div class="sec-head">
-        <span class="eyebrow">Recurring transactions · next build</span>
+        <span class="eyebrow">Recurring transactions · in beta</span>
         <h2 id="h-rec">Set it once. Confirm when it’s due.</h2>
         <p class="sec-sub">Rent, subscriptions, a salary: create a schedule for income or expenses. Artham lists what is due and waits for you. Nothing is added until you confirm it.</p>
       </div>
@@ -829,7 +832,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
     <section id="smart" aria-labelledby="h-smart">
       <div class="sec-head">
-        <span class="eyebrow">Smart, and fully on your device · next build</span>
+        <span class="eyebrow">Smart, and fully on your device · in beta</span>
         <h2 id="h-smart">It knows where your money goes.</h2>
         <p class="sec-sub">Artham recognises more than 1,000 India-focused merchants from a catalogue stored in the app, ranks where you spend and notices payments that repeat. Nothing leaves your phone, and nothing changes without you.</p>
       </div>
@@ -877,6 +880,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><div><h3>Exact to the paisa</h3><p>Amounts are saved as whole paise, so floating-point rounding never creeps into your balances.</p></div></div>
           <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.2 8.5-7 10-3.8-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h3>Upgrades keep your records</h3><p>Database migrations are written to preserve existing data. The latest upgrades kept existing transactions and budgets intact.</p></div></div>
           <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-4 3v-3H4z"/></svg></div><div><h3>Alerts, not messages</h3><p>Imported SMS alerts are saved as structured transaction fields. The original message text is never stored.</p></div></div>
+          <div class="pt glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></div><div><h3>Export, locally</h3><p>Settings can share your transactions as a CSV or save a JSON backup of every table. Files are made on the device and not uploaded. JSON backups are unencrypted, so store them securely.</p></div></div>
           <p class="fine">Database encryption and other security improvements are planned.</p>
         </div>
       </div>
@@ -893,21 +897,18 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
     <section id="whatsnew" aria-labelledby="h-new">
       <div class="sec-head">
         <span class="eyebrow">From the changelog</span>
-        <h2 id="h-new">What’s new in the next build.</h2>
+        <h2 id="h-new">What’s new in the beta.</h2>
         <p class="sec-sub">Everything below is listed as Unreleased in the project changelog. Version and build numbers are added once a release is confirmed.</p>
       </div>
       <div class="cl">
         <div class="col add glass" data-glow>
-          <h3><span class="badge">Added</span><span class="ct">Bank SMS import</span><span class="cd">10 Nov</span></h3>
+          <h3><span class="badge">Added</span><span class="ct">Local data export</span><span class="cd">11 Nov</span></h3>
           <ul>
-            <li>Automatic import of new bank and UPI debit and credit alerts, opt-in with the Android SMS permission</li>
-            <li>A Settings control with an upfront disclosure and an optional default account</li>
-            <li>Account matching by last four digits, including formats like A/c XX1255</li>
-            <li>Unknown or ambiguous accounts wait in a pending-review queue instead of being guessed</li>
-            <li>Duplicate detection shared with manual import, and the SMS text is not kept</li>
-            <li>Manual paste and share import kept as a fallback, with editable review</li>
-            <li>Conservative parsing of INR amounts, debit or credit, dates, UPI and UTR references, and category suggestions</li>
-            <li>Transactions from the background receiver appear when you reopen the app</li>
+            <li>A transaction CSV with account, transfer destination, category, merchant, reference, notes, source, date and amount</li>
+            <li>A structured JSON backup of every Drift table, plus any legacy pending-SMS review rows</li>
+            <li>Share from Settings, or use separate Save As actions to pick a folder such as Downloads</li>
+            <li>CSV formula-injection protection and a UTF-8 BOM for spreadsheet compatibility</li>
+            <li>Generated on the device, with no upload. JSON backups are unencrypted, and restore is not included yet</li>
           </ul>
         </div>
         <div class="col add glass" data-glow>
@@ -940,7 +941,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
             <li>An on-device catalogue of 1,075 India-focused merchants across eight spending categories</li>
             <li>Whole-word alias matching, with specific names first, so Swiggy Instamart is Groceries rather than Food &amp; Dining</li>
             <li>Category suggestions while typing an expense, which you can override</li>
-            <li>Merchant links on manual entries, reviewed SMS imports, recurring confirmations and automatic SMS imports</li>
+            <li>Merchant links on manual entries, reviewed SMS imports and recurring confirmations</li>
             <li>A Merchant field in transaction details</li>
           </ul>
         </div>
@@ -972,10 +973,13 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
             <li>Database schema upgraded to version 4, with new BudgetTemplates and RecurringSchedules tables and existing records preserved</li>
             <li>The Home budget shortcut opens the full Budgets screen</li>
             <li>Activity has a shortcut to Recurring Transactions</li>
-            <li>Android receiver timestamps match the way Drift stores dates</li>
-            <li>A bank alert’s payee now wins over the payment provider, so an unrelated shop paid through Amazon Pay is not mistaken for Amazon</li>
+                        <li>A bank alert’s payee now wins over the payment provider, so an unrelated shop paid through Amazon Pay is not mistaken for Amazon</li>
             <li>Merchant features reuse existing database fields, so there is no schema migration</li>
-            <li>The app icon and launch screen use the pastel Artham mark, with a short animated intro</li>
+            <li>Automatic Android SMS intake is removed. Import is manual only, through Activity &gt; Import SMS, with editable review, duplicate detection and merchant recognition kept</li>
+            <li>A dark glass look across every screen, with a floating glass tab bar, red debits and mint income</li>
+            <li>Beta launcher icons for Android and iOS, with adaptive Android layers, and matching lavender launch screens</li>
+            <li>A new animated startup with the pastel A and rupee coin, a BETA ribbon, the Malayalam wordmark and a tagline</li>
+            <li>Existing SMS fingerprints stay in the database. No migration is needed and no transactions are deleted</li>
           </ul>
         </div>
         <div class="col fix glass" data-glow>
@@ -991,8 +995,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       <div class="verified glass">
         <span class="eyebrow">Verified</span>
         <span>GitHub Actions checks formatting, <code>flutter analyze</code>, Flutter tests, the Android release build and native Kotlin tests, including merchant matching and insight thresholds</span>
-        <span>The SMS flow was validated in the Android emulator: a new ₹7.00 UPI debit was imported as an expense on the matching account</span>
-        <span>Still pending: SMS validation and the Stage 6 acceptance checks on a physical device</span>
+        <span>Android manifest permission and receiver audit, Flutter analysis, tests and a debug APK build are required before each merge</span>
+        <span>Still pending: a device check that Activity &gt; Import SMS parses a message you select, and the Stage 6 acceptance checks on a physical device</span>
       </div>
     </section>
     <section id="roadmap" aria-labelledby="h-road">
@@ -1001,13 +1005,14 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <h2 id="h-road">Where Artham is going.</h2>
       </div>
       <div class="road">
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9M4 9v11h16V9M9 20v-6h6v6"/></svg></div><h3>Merchant intelligence</h3><p>Offline merchant recognition, spending insights and repeating-payment detection.</p><span class="tagp done">Next build</span></div>
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-4 3v-3H4z"/></svg></div><h3>Bank SMS import</h3><p>New bank and UPI alerts become transactions in the background, matched to your accounts by last four digits.</p><span class="tagp done">Next build</span></div>
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l5-5 4 3 7-8M15 7h5v5"/></svg></div><h3>Budget planning</h3><p>Rollover, monthly templates, planned-versus-actual insights and month-end forecasts.</p><span class="tagp done">Next build</span></div>
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></svg></div><h3>Recurring transactions</h3><p>Schedules you confirm when they are due, plus suggestions from detected patterns.</p><span class="tagp done">Next build</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9M4 9v11h16V9M9 20v-6h6v6"/></svg></div><h3>Merchant intelligence</h3><p>Offline merchant recognition, spending insights and repeating-payment detection.</p><span class="tagp done">In beta</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-4 3v-3H4z"/></svg></div><h3>Manual SMS import</h3><p>Paste or share a bank or UPI alert, review the parsed fields and save, with local duplicate protection.</p><span class="tagp done">In beta</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l5-5 4 3 7-8M15 7h5v5"/></svg></div><h3>Budget planning</h3><p>Rollover, monthly templates, planned-versus-actual insights and month-end forecasts.</p><span class="tagp done">In beta</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></svg></div><h3>Recurring transactions</h3><p>Schedules you confirm when they are due, plus suggestions from detected patterns.</p><span class="tagp done">In beta</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></div><h3>Data export</h3><p>Share transactions as CSV or save a JSON backup. Restoring a backup is planned.</p><span class="tagp done">In beta</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5"/></svg></div><h3>Bank statement import</h3><p>Load transactions straight from a statement.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><h3>Database encryption</h3><p>Extra protection for the on-device database, with further security work.</p><span class="tagp">Planned</span></div>
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div><h3>Expanded Settings</h3><p>More options beyond the SMS import controls Settings holds today.</p><span class="tagp">Planned</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div><h3>Expanded Settings</h3><p>More options beyond the data export actions Settings holds today.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg></div><h3>Faster everywhere</h3><p>Further performance improvements across the app.</p><span class="tagp">Planned</span></div>
       </div>
     </section>
@@ -1020,13 +1025,16 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       </div>
     </section>
 
-    <section class="soon glass" aria-labelledby="h-soon">
+    <section id="get" class="soon glass" aria-labelledby="h-soon">
       <div class="appicon"><img src="img/icon-180.png" width="150" height="150" alt="The Artham app icon"></div>
       <div class="soon-copy">
         <span class="eyebrow">Get the app</span>
-        <h2 id="h-soon">Artham for Android is on the way.</h2>
-        <p>The app is in active development. Automatic SMS import has been validated in the Android emulator, and physical-device testing is still to come. A download link will appear here when it is ready.</p>
-        <span class="pill glass"><span class="dot"></span>Android · coming soon</span>
+        <h2 id="h-soon">The Artham beta is ready for Android.</h2>
+        <p>Download the beta through Firebase App Distribution and install it on your phone. It is a test build of an app in active development, so expect rough edges and keep your own backups.</p>
+        <a class="btn btn-main" href="https://appdistribution.firebase.google.com/testerapps/1:245459198682:android:d18a49369b4fc031f13be3/releases/285gbghiomq70?utm_source=firebase-console" target="_blank" rel="noopener">Download beta
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
+        </a>
+        <p class="dl-note">Android only. Sign in with the Google account that was invited to the beta. When Android asks, allow installs from your browser or file manager. No SMS permission is requested.</p>
       </div>
     </section>
 
