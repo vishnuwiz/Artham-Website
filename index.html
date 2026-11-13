@@ -1266,7 +1266,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
   scheduleNavUpdate();
 
   // A restrained magnetic response on large-pointer devices only.
-  if (finePointer) {
+  if (finePointer && !reducedMotion) {
     doc.querySelectorAll('.btn-main').forEach(function (button) {
       button.addEventListener('pointermove', function (event) {
         var rect = button.getBoundingClientRect();
