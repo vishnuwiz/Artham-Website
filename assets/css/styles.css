@@ -8,3 +8,73 @@
   border-radius: 23%;
   overflow: hidden;
 }
+
+
+/* Mobile width guard: keep the site container as wide as the phone viewport. */
+@media (max-width: 820px) {
+  html,
+  body {
+    width: 100%;
+    min-width: 320px;
+  }
+
+  .page-shell {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 18px;
+  }
+
+  .page-shell,
+  .page-shell * {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 15px;
+  }
+
+  .site-header,
+  main,
+  .site-footer,
+  .hero,
+  .product-section,
+  .feature-band,
+  .privacy-section,
+  .updates-section,
+  .download-panel {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .hero-copy,
+  .hero-art,
+  .section-heading,
+  .feature-band-intro,
+  .feature-items,
+  .privacy-copy,
+  .updates-heading,
+  .download-copy,
+  .download-actions {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .product-grid,
+  .update-grid,
+  .privacy-points {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .download-panel {
+    box-sizing: border-box;
+  }
+}
