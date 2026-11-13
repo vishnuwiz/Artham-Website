@@ -52,7 +52,7 @@ When the app repository gets a new README or changelog entry, update these secti
 
 ## Other things to edit
 
-- **Download button.** The nav and the final section link to Firebase App Distribution for the Android beta. Replace that URL with the Play Store listing when a public release is available.
+- **Download button.** The navigation, hero and final section link directly to the `app-release.apk` asset in GitHub Release `v0.1.0`. Update all three APK links and the visible release text together when publishing a new build. Keep the release-notes link pointed at the matching GitHub release page.
 - **GitHub links.** The "Built in the open" section links to the app repository, its changelog and its issues page.
 - **Colours and fonts.** Every colour is a CSS variable at the top of the `<style>` block, with a dark set and a light set.
 - **Share preview.** `img/social-preview.png` is also set as the Open Graph image. Upload it under **Settings → General → Social preview** too.
