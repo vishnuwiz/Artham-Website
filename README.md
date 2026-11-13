@@ -1,64 +1,61 @@
-<h1 align="center">Artham · അർത്ഥം</h1>
+# Artham Website
 
-<p align="center">
-  Website for <strong>Artham</strong>, a personal budgeting app for Android.<br>
-  One page, glassmorphism, plain HTML and CSS.
-</p>
+A responsive, single-page landing website for **Artham**, a local-first personal finance app for Android.
 
-<p align="center">
-  <img src="img/social-preview.png" alt="Artham website preview" width="720">
-</p>
+The focused layout includes the hero and download area, four product screens, key features, privacy, recent updates and project links. It uses plain HTML, CSS and JavaScript with no build step or package manager.
 
-## About
+## Run locally
 
-Artham shows every account as one balance, records each rupee as it moves, and keeps every category inside its limit. The name is Malayalam for *meaning*.
+1. Extract the project folder.
+2. Open \`index.html\` directly in a browser, or start a local server:
 
-This repository holds the landing page. It showcases the app's Home, Activity, Insights and Budgets screens, with sections for user-initiated bank/UPI SMS paste-and-share import, custom categories, transaction date and time, budget planning and forecasts, recurring transactions, offline merchant recognition and spending insights, CSV/JSON export, local backup history and the roadmap. The page uses light and dark themes based on the visitor's device setting.
+   \`\`\`bash
+   python -m http.server 8000
+   \`\`\`
 
-The app itself lives in [vishnuwiz/artham](https://github.com/vishnuwiz/artham). The content sections are written from that repository's README and `CHANGELOG.md`.
+3. Visit \`http://localhost:8000\`.
 
-## Structure
+## Publish
 
-```
-index.html      the whole page, styles and a little script inline
-img/            app screenshots (WebP, 640×1422), the app icon and the social preview
-```
+The site is static and can be hosted on Netlify, GitHub Pages, Cloudflare Pages or another static host. Preserve the \`assets/\` and \`img/\` directory paths.
 
-## Run it locally
+## Files
 
-There is no build step. Open `index.html` in a browser, or serve the folder:
+\`\`\`text
+index.html
+404.html
+assets/
+  css/styles.css
+  js/main.js
+img/
+  app screenshots, icons and social preview
+\`\`\`
 
-```sh
-python3 -m http.server 8000
-```
+## Included interactions
 
-## Publish with GitHub Pages
+- Responsive mobile navigation with keyboard dismissal.
+- Section-aware navigation state and animated desktop underlines.
+- Staggered scroll reveals, a reading-progress line and back-to-top control.
+- Accessible screenshot lightbox (click, Enter/Space and Escape).
+- Pointer-aware product-card tilt and soft cursor-following highlights.
+- Gentle hero-phone parallax and magnetic primary download buttons on desktop.
+- Refined hover and focus responses for feature items, privacy points, update cards and download areas.
+- Pointer effects are disabled on touch-only devices and when reduced motion is preferred.
 
-1. Open **Settings → Pages**.
-2. Under **Build and deployment**, choose **Deploy from a branch**, pick `main` and `/ (root)`, then save.
-3. After a minute the site is live at `https://<your-username>.github.io/<repository>/`.
+## Download link
 
-## Keeping it up to date
+The Android beta buttons point to GitHub Release \`v0.1.0\`:
 
-When the app repository gets a new README or changelog entry, update these sections in `index.html`:
+https://github.com/vishnuwiz/artham/releases/download/v0.1.0/app-release.apk
 
-- **Feature details:** keep the Home, Activity, Insights and Budgets descriptions aligned with implemented app behaviour.
-- **Custom categories and transaction date/time:** keep the feature tiles and examples current.
-- **SMS import and privacy:** describe only user-initiated paste/share import; do not imply inbox monitoring or automatic SMS intake.
-- **Local-first and backups:** keep CSV/JSON export, backup history, restore, retention and encryption notes accurate.
-- **What's new:** add the latest Added and Changed items from the app changelog, and refresh the verification note from actual test/device results.
-- **Roadmap:** move implemented features out of Planned and update the status labels.
-- **Screenshots:** replace files in `img/` using the same names and keep the 9:20 ratio. Use current app screens when available.
+Update both APK buttons and the release-notes link in \`index.html\` together when publishing a new release.
 
-## Other things to edit
+## Privacy wording
 
-- **Download button.** The navigation, hero and final section link directly to the `app-release.apk` asset in GitHub Release `v0.1.0`. Update all three APK links and the visible release text together when publishing a new build. Keep the release-notes link pointed at the matching GitHub release page.
-- **GitHub links.** The "Built in the open" section links to the app repository, its changelog and its issues page.
-- **Colours and fonts.** Every colour is a CSS variable at the top of the `<style>` block, with a dark set and a light set.
-- **Share preview.** `img/social-preview.png` is also set as the Open Graph image. Upload it under **Settings → General → Social preview** too.
+The page describes SMS import as user-initiated paste/share only. It does not claim to read the SMS inbox, monitor messages in the background or request SMS permissions.
 
-Fonts (Bricolage Grotesque, DM Sans and Noto Sans Malayalam) load from Google Fonts.
+## Notes
 
-## Licence
-
-The website code is released under the [MIT licence](LICENSE). The Artham name, logo and app screenshots are not covered by it.
+- Google Fonts load remotely; system fallbacks are provided.
+- App screenshots and icons are served from the repository's existing \`img/\` directory.
+- The website code is MIT licensed. The Artham name, icon and app screenshots are not covered by that licence.
