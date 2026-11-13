@@ -510,6 +510,43 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
   .ph-c,.ph-l,.ph-r{animation:none}
   .btn,.tile{transition:none}
 }
+
+
+/* Artham interaction layer v1 */
+.nav-links a[aria-current="location"]{color:var(--fg)}
+.nav-links a[aria-current="location"]::after{scale:1 1}
+.btn-main{translate:var(--mag-x,0px) var(--mag-y,0px);transition:translate .2s cubic-bezier(.2,.8,.2,1),transform .2s,box-shadow .2s}
+.btn:active{scale:.97}
+.feat-vis .phone{transform-style:preserve-3d;will-change:transform}
+.feat-vis:hover .phone{transform:perspective(1100px) rotateX(var(--tilt-y,3deg)) rotateY(var(--tilt-x,-7deg)) translateY(-6px)}
+.feat.flip .feat-vis:hover .phone{transform:perspective(1100px) rotateX(var(--tilt-y,3deg)) rotateY(var(--tilt-x,7deg)) translateY(-6px)}
+.tagp.done{display:inline-flex;align-items:center;gap:8px}
+.tagp.done::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 0 0 color-mix(in srgb,currentColor 45%,transparent);animation:status-pulse 2.4s ease-out infinite}
+@keyframes status-pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,currentColor 42%,transparent)}70%,100%{box-shadow:0 0 0 7px transparent}}
+.phone img,.shot-card img{cursor:zoom-in}
+.phone img[role="button"]:focus-visible,.shot-card img[role="button"]:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+.reveal-ready [data-reveal]{opacity:0;transform:translateY(22px) scale(.99);transition:opacity .65s cubic-bezier(.2,.8,.2,1),transform .65s cubic-bezier(.2,.8,.2,1);transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform}
+.reveal-ready [data-reveal].is-visible{opacity:1;transform:none;will-change:auto}
+.scroll-progress{position:fixed;inset:0 auto auto 0;width:100%;height:3px;z-index:1000;pointer-events:none;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--g1),var(--g2),var(--coral));box-shadow:0 0 14px color-mix(in srgb,var(--accent) 65%,transparent)}
+.back-top{position:fixed;right:max(22px,env(safe-area-inset-right));bottom:max(22px,env(safe-area-inset-bottom));z-index:80;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--edge-hi);background:var(--glass-fallback);color:var(--fg);box-shadow:0 14px 36px -16px var(--shadow);font:700 1.25rem var(--font-body);cursor:pointer;opacity:0;visibility:hidden;translate:0 10px;transition:opacity .25s,visibility .25s,translate .25s,border-color .25s}
+.back-top.is-visible{opacity:1;visibility:visible;translate:0 0}
+.back-top:hover{border-color:var(--accent);translate:0 -3px}
+.image-lightbox{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;padding:28px;background:rgba(12,9,25,.82);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);opacity:0;animation:lightbox-in .22s ease forwards}
+.image-lightbox figure{display:flex;flex-direction:column;align-items:center;gap:12px;max-width:min(92vw,760px);max-height:92vh;margin:0}
+.image-lightbox img{display:block;max-width:100%;max-height:84vh;object-fit:contain;border-radius:24px;border:1px solid rgba(255,255,255,.32);box-shadow:0 32px 90px rgba(0,0,0,.5);background:#211a39}
+.image-lightbox figcaption{max-width:60ch;color:#f4f0ff;text-align:center;font-size:.88rem;line-height:1.45}
+.lightbox-close{position:absolute;top:max(18px,env(safe-area-inset-top));right:max(18px,env(safe-area-inset-right));width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font:400 1.7rem/1 var(--font-body);cursor:pointer}
+.lightbox-close:hover{background:rgba(255,255,255,.22)}
+@keyframes lightbox-in{to{opacity:1}}
+@media (max-width:720px){.back-top{right:18px;bottom:18px;width:44px;height:44px}}
+@media (prefers-reduced-motion:reduce){
+  .reveal-ready [data-reveal]{opacity:1;transform:none;transition:none;will-change:auto}
+  .tagp.done::before{animation:none}
+  .btn-main,.back-top{transition:none}
+  .feat-vis:hover .phone,.feat.flip .feat-vis:hover .phone{transform:none}
+  .image-lightbox{animation:none;opacity:1}
+}
+
 </style>
 </head>
 <body>
@@ -1169,6 +1206,203 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
   spent.addEventListener('input', update);
   roll.addEventListener('change', update);
   update();
+})();
+</script>
+<script>
+/* Accessible screenshot lightbox and scroll polish */
+(function () {
+  var doc = document;
+  var root = doc.documentElement;
+  var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // Reveal content as it enters the viewport. If IntersectionObserver is unavailable,
+  // leave the page fully visible rather than hiding content.
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    var revealSelector = '.hero-copy > *, .cluster, .sec-head, .feat, .tile, .name, .pt, .step, .flow li, .col, .verified, .rc, .soon, .open, .shot-card';
+    var revealItems = Array.prototype.slice.call(doc.querySelectorAll(revealSelector));
+    revealItems.forEach(function (el) {
+      var siblings = el.parentElement ? Array.prototype.slice.call(el.parentElement.children) : [];
+      var index = Math.max(0, siblings.indexOf(el));
+      el.setAttribute('data-reveal', '');
+      el.style.setProperty('--reveal-delay', (Math.min(index % 5, 4) * 65) + 'ms');
+    });
+    root.classList.add('reveal-ready');
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+    revealItems.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  // Highlight the navigation item for the section nearest the top reading line.
+  var navLinks = Array.prototype.slice.call(doc.querySelectorAll('.nav-links a[href^="#"]'));
+  var navTargets = navLinks.map(function (link) {
+    var id = link.getAttribute('href').slice(1);
+    return { link: link, section: doc.getElementById(id) };
+  }).filter(function (item) { return !!item.section; });
+  var navFrame = 0;
+  function updateActiveNav() {
+    navFrame = 0;
+    if (!navTargets.length) return;
+    var marker = Math.max(120, (doc.querySelector('.nav') || {}).offsetHeight + 70 || 150);
+    var current = null;
+    navTargets.forEach(function (item) {
+      var rect = item.section.getBoundingClientRect();
+      if (rect.top <= marker && rect.bottom > marker) current = item;
+    });
+    navLinks.forEach(function (link) { link.removeAttribute('aria-current'); });
+    if (current) current.link.setAttribute('aria-current', 'location');
+  }
+  function scheduleNavUpdate() {
+    if (!navFrame) navFrame = window.requestAnimationFrame(updateActiveNav);
+  }
+  window.addEventListener('scroll', scheduleNavUpdate, { passive: true });
+  window.addEventListener('resize', scheduleNavUpdate);
+  scheduleNavUpdate();
+
+  // A restrained magnetic response on large-pointer devices only.
+  if (finePointer) {
+    doc.querySelectorAll('.btn-main').forEach(function (button) {
+      button.addEventListener('pointermove', function (event) {
+        var rect = button.getBoundingClientRect();
+        var x = (event.clientX - rect.left - rect.width / 2) / rect.width;
+        var y = (event.clientY - rect.top - rect.height / 2) / rect.height;
+        button.style.setProperty('--mag-x', (x * 5).toFixed(2) + 'px');
+        button.style.setProperty('--mag-y', (y * 4).toFixed(2) + 'px');
+      });
+      button.addEventListener('pointerleave', function () {
+        button.style.setProperty('--mag-x', '0px');
+        button.style.setProperty('--mag-y', '0px');
+      });
+      button.addEventListener('blur', function () {
+        button.style.setProperty('--mag-x', '0px');
+        button.style.setProperty('--mag-y', '0px');
+      });
+    });
+
+    // Let the product screenshots respond slightly to cursor position.
+    doc.querySelectorAll('.feat-vis').forEach(function (panel) {
+      var phone = panel.querySelector('.phone');
+      if (!phone) return;
+      panel.addEventListener('pointermove', function (event) {
+        var rect = panel.getBoundingClientRect();
+        var x = (event.clientX - rect.left - rect.width / 2) / rect.width;
+        var y = (event.clientY - rect.top - rect.height / 2) / rect.height;
+        phone.style.setProperty('--tilt-x', ((panel.closest('.feat.flip') ? 7 : -7) + x * 5).toFixed(2) + 'deg');
+        phone.style.setProperty('--tilt-y', (3 - y * 4).toFixed(2) + 'deg');
+      });
+      panel.addEventListener('pointerleave', function () {
+        phone.style.removeProperty('--tilt-x');
+        phone.style.removeProperty('--tilt-y');
+      });
+    });
+  }
+
+  // Thin reading-progress line and a quiet back-to-top affordance.
+  var progress = doc.createElement('div');
+  progress.className = 'scroll-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  doc.body.appendChild(progress);
+  var backTop = doc.createElement('button');
+  backTop.className = 'back-top';
+  backTop.type = 'button';
+  backTop.setAttribute('aria-label', 'Back to top');
+  backTop.title = 'Back to top';
+  backTop.textContent = '↑';
+  doc.body.appendChild(backTop);
+  var scrollFrame = 0;
+  function updateScrollDecor() {
+    scrollFrame = 0;
+    var scrollable = root.scrollHeight - window.innerHeight;
+    var amount = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+    progress.style.transform = 'scaleX(' + amount + ')';
+    backTop.classList.toggle('is-visible', window.scrollY > 620);
+  }
+  function scheduleScrollDecor() {
+    if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateScrollDecor);
+  }
+  window.addEventListener('scroll', scheduleScrollDecor, { passive: true });
+  window.addEventListener('resize', scheduleScrollDecor);
+  scheduleScrollDecor();
+  backTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+  });
+
+  // Expand product screenshots into a keyboard-accessible lightbox.
+  var activeLightbox = null;
+  var previousOverflow = '';
+  function closeLightbox() {
+    if (!activeLightbox) return;
+    var overlay = activeLightbox.overlay;
+    var returnTo = activeLightbox.trigger;
+    activeLightbox = null;
+    overlay.remove();
+    doc.body.style.overflow = previousOverflow;
+    if (returnTo && returnTo.isConnected) returnTo.focus();
+  }
+  function openLightbox(image) {
+    if (activeLightbox) closeLightbox();
+    var overlay = doc.createElement('div');
+    overlay.className = 'image-lightbox';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Expanded Artham screenshot');
+
+    var close = doc.createElement('button');
+    close.className = 'lightbox-close';
+    close.type = 'button';
+    close.setAttribute('aria-label', 'Close enlarged screenshot');
+    close.textContent = '×';
+
+    var figure = doc.createElement('figure');
+    var enlarged = doc.createElement('img');
+    enlarged.src = image.currentSrc || image.src;
+    enlarged.alt = image.alt || 'Artham app screenshot';
+    var caption = doc.createElement('figcaption');
+    caption.textContent = image.alt || 'Artham app screenshot';
+    figure.appendChild(enlarged);
+    figure.appendChild(caption);
+    overlay.appendChild(close);
+    overlay.appendChild(figure);
+    doc.body.appendChild(overlay);
+
+    previousOverflow = doc.body.style.overflow;
+    doc.body.style.overflow = 'hidden';
+    activeLightbox = { overlay: overlay, trigger: image };
+    close.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', function (event) {
+      if (event.target === overlay) closeLightbox();
+    });
+    overlay.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeLightbox();
+      } else if (event.key === 'Tab') {
+        event.preventDefault();
+        close.focus();
+      }
+    });
+    close.focus();
+  }
+
+  doc.querySelectorAll('.phone img, .shot-card img').forEach(function (image) {
+    image.setAttribute('role', 'button');
+    image.setAttribute('tabindex', '0');
+    image.setAttribute('aria-haspopup', 'dialog');
+    image.setAttribute('aria-label', 'Enlarge screenshot: ' + (image.alt || 'Artham app screen'));
+    image.addEventListener('click', function () { openLightbox(image); });
+    image.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openLightbox(image);
+      }
+    });
+  });
 })();
 </script>
 </body>
