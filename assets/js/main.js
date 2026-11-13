@@ -67,6 +67,31 @@
     navSections.forEach(function (item) { navObserver.observe(item.section); });
   }
 
+  // Light / dark theme toggle (choice is remembered; defaults to the system setting).
+  var themeButton = document.querySelector('.theme-toggle');
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  function applyTheme(theme, animate) {
+    if (animate && !reducedMotion) {
+      root.classList.add('theme-anim');
+      window.setTimeout(function () { root.classList.remove('theme-anim'); }, 450);
+    }
+    root.setAttribute('data-theme', theme);
+    if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#f6f2ff' : '#171329');
+    if (themeButton) {
+      var next = theme === 'light' ? 'dark' : 'light';
+      themeButton.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+      themeButton.setAttribute('aria-pressed', String(theme === 'light'));
+    }
+  }
+  applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark', false);
+  if (themeButton) {
+    themeButton.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      applyTheme(next, true);
+      try { localStorage.setItem('artham-theme', next); } catch (e) {}
+    });
+  }
+
   // Header turns to frosted glass once the page scrolls.
   var header = document.querySelector('.site-header');
   function updateHeader() {

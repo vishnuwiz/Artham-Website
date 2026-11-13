@@ -3,6 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>
+    (function () {
+      var theme = 'dark';
+      try {
+        var saved = localStorage.getItem('artham-theme');
+        if (saved === 'light' || saved === 'dark') theme = saved;
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) theme = 'light';
+      } catch (e) {}
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <meta name="theme-color" content="#171329">
   <meta name="description" content="Artham is a local-first personal finance app for Android. Track accounts and transactions, understand spending, plan budgets and keep control of your data.">
   <meta property="og:type" content="website">
@@ -17,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261113-mobile-fix">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261114-theme">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -33,9 +44,15 @@
         <span>Artham</span>
         <span class="beta-tag">Beta</span>
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
-        <span></span><span></span>
-      </button>
+      <div class="header-tools">
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.3M12 19.2v2.3M2.5 12h2.3M19.2 12h2.3M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.6A8.4 8.4 0 0 1 9.4 3.8a8.4 8.4 0 1 0 10.8 10.8Z"/></svg>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
+          <span></span><span></span>
+        </button>
+      </div>
       <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
         <a href="#features">Features</a>
         <a href="#privacy">Privacy</a>
