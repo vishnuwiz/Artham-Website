@@ -350,3 +350,107 @@ body {
     padding-right: max(15px, env(safe-area-inset-right, 0px)) !important;
   }
 }
+
+
+/*
+ * Real-device mobile canvas. The early head script measures the device width
+ * independently from Safari's zoomed visual viewport. This avoids a narrow
+ * CSS layout viewport leaving unused screen space on the right.
+ */
+html.artham-mobile-width,
+html.artham-mobile-width body {
+  box-sizing: border-box !important;
+  width: var(--artham-layout-width) !important;
+  min-width: var(--artham-layout-width) !important;
+  max-width: var(--artham-layout-width) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+html.artham-mobile-width .page-shell {
+  display: block !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  left: 0 !important;
+  transform: none !important;
+  width: var(--artham-layout-width) !important;
+  min-width: var(--artham-layout-width) !important;
+  max-width: var(--artham-layout-width) !important;
+  margin: 0 !important;
+  padding-left: max(15px, env(safe-area-inset-left, 0px)) !important;
+  padding-right: max(15px, env(safe-area-inset-right, 0px)) !important;
+}
+
+html.artham-mobile-width .site-header {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px;
+}
+
+html.artham-mobile-width .menu-toggle {
+  display: flex !important;
+  flex: 0 0 44px !important;
+}
+
+html.artham-mobile-width .primary-nav {
+  display: none;
+}
+
+html.artham-mobile-width .primary-nav.is-open {
+  display: flex;
+}
+
+html.artham-mobile-width main,
+html.artham-mobile-width .site-footer,
+html.artham-mobile-width .hero,
+html.artham-mobile-width .product-section,
+html.artham-mobile-width .feature-band,
+html.artham-mobile-width .privacy-section,
+html.artham-mobile-width .updates-section,
+html.artham-mobile-width .download-panel {
+  box-sizing: border-box;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+html.artham-mobile-width .hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+html.artham-mobile-width .product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  min-width: 0;
+}
+
+html.artham-mobile-width .feature-band,
+html.artham-mobile-width .privacy-section,
+html.artham-mobile-width .download-panel,
+html.artham-mobile-width .site-footer {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+html.artham-mobile-width .update-grid {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  min-width: 0;
+}
+
+html.artham-mobile-width .download-actions,
+html.artham-mobile-width .button-download {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+html.artham-mobile-width .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+}
