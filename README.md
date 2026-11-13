@@ -7,21 +7,21 @@ The focused layout includes the hero and download area, four product screens, ke
 ## Run locally
 
 1. Extract the project folder.
-2. Open \`index.html\` directly in a browser, or start a local server:
+2. Open `index.html` directly in a browser, or start a local server:
 
-   \`\`\`bash
+   ```bash
    python -m http.server 8000
-   \`\`\`
+   ```
 
-3. Visit \`http://localhost:8000\`.
+3. Visit `http://localhost:8000`.
 
 ## Publish
 
-The site is static and can be hosted on Netlify, GitHub Pages, Cloudflare Pages or another static host. Preserve the \`assets/\` and \`img/\` directory paths.
+The site is static and can be hosted on Netlify, GitHub Pages, Cloudflare Pages or another static host. Preserve the `assets/` and `img/` directory paths.
 
 ## Files
 
-\`\`\`text
+```text
 index.html
 404.html
 assets/
@@ -29,7 +29,7 @@ assets/
   js/main.js
 img/
   app screenshots, icons and social preview
-\`\`\`
+```
 
 ## Included interactions
 
@@ -44,11 +44,11 @@ img/
 
 ## Download link
 
-The Android beta buttons point to GitHub Release \`v0.1.1\`:
+The Android beta buttons point to GitHub Release `v0.1.1`:
 
 https://github.com/vishnuwiz/artham/releases/download/v0.1.1/app-release.apk
 
-Update both APK buttons and the release-notes link in \`index.html\` together when publishing a new release.
+Update both APK buttons and the release-notes link in `index.html` together when publishing a new release.
 
 ## Privacy wording
 
@@ -57,5 +57,5 @@ The page describes SMS import as user-initiated paste/share only. It does not cl
 ## Notes
 
 - Google Fonts load remotely; system fallbacks are provided.
-- App screenshots and icons are served from the repository's existing \`img/\` directory.
+- App screenshots and icons are served from the repository's existing `img/` directory.
 - The website code is MIT licensed. The Artham name, icon and app screenshots are not covered by that licence.
