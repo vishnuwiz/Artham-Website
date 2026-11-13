@@ -44,9 +44,9 @@ img/
 
 ## Download link
 
-The Android beta buttons point to GitHub Release \`v0.1.0\`:
+The Android beta buttons point to GitHub Release \`v0.1.1\`:
 
-https://github.com/vishnuwiz/artham/releases/download/v0.1.0/app-release.apk
+https://github.com/vishnuwiz/artham/releases/download/v0.1.1/app-release.apk
 
 Update both APK buttons and the release-notes link in \`index.html\` together when publishing a new release.
 
