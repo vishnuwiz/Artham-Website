@@ -3,29 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var deviceWidth = Math.round((window.screen && window.screen.width) || window.innerWidth || 0);
-      if (!deviceWidth || deviceWidth > 900) return;
-
-      function syncMobileViewport() {
-        var layoutWidth = Math.max(
-          deviceWidth,
-          Math.round(window.innerWidth || 0),
-          Math.round((window.visualViewport && window.visualViewport.width) || 0)
-        );
-        root.classList.add('artham-mobile-width');
-        root.style.setProperty('--artham-layout-width', layoutWidth + 'px');
-      }
-
-      syncMobileViewport();
-      window.addEventListener('resize', syncMobileViewport, { passive: true });
-      if (window.visualViewport) {
-        window.visualViewport.addEventListener('resize', syncMobileViewport, { passive: true });
-      }
-    })();
-  </script>
   <meta name="theme-color" content="#171329">
   <meta name="description" content="Artham is a local-first personal finance app for Android. Track accounts and transactions, understand spending, plan budgets and keep control of your data.">
   <meta property="og:type" content="website">
@@ -40,13 +17,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=artham-viewport-class-20261113-6">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261113-mobile-fix">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="ambient ambient-one" aria-hidden="true"></div>
-  <div class="ambient ambient-two" aria-hidden="true"></div>
-  <div class="ambient ambient-three" aria-hidden="true"></div>
+  <div class="ambient-layer" aria-hidden="true">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+  </div>
   <div class="page-shell">
     <header class="site-header" id="top">
       <a class="brand" href="#top" aria-label="Artham home">

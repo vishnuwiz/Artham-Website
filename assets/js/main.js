@@ -67,6 +67,14 @@
     navSections.forEach(function (item) { navObserver.observe(item.section); });
   }
 
+  // Header turns to frosted glass once the page scrolls.
+  var header = document.querySelector('.site-header');
+  function updateHeader() {
+    if (header) header.classList.toggle('is-stuck', window.scrollY > 12);
+  }
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+
   // Thin reading progress and back-to-top button.
   var progress = document.createElement('div');
   progress.className = 'scroll-progress';
