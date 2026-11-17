@@ -44,11 +44,12 @@ img/
 
 ## Download link
 
-The Android beta buttons point to GitHub Release `v0.1.1`:
+Both landing-page variants now point to the latest Android beta, Artham v0.1.2 (17 November 2026):
 
-https://github.com/vishnuwiz/artham/releases/download/v0.1.1/app-release.apk
+- APK: https://github.com/vishnuwiz/artham/releases/download/v0.1.2/app-release.apk
+- Release notes: https://github.com/vishnuwiz/artham/releases/tag/v0.1.2
 
-Update both APK buttons and the release-notes link in `index.html` together when publishing a new release.
+The root `index.html` is the current Netlify-style landing page. `site/index.html` is an alternate full-page design and is kept in sync to avoid stale feature and release information. Update both APK buttons and release-note links when publishing a new release.
 
 ## Privacy wording
 
