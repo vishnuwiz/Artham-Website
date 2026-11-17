@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Artham</title>
-<meta name="description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, schedule recurring transactions and keep every category inside its limit.">
+<meta name="description" content="Artham is a local-first personal finance app for Android. Track every account, split shared expenses, tag transactions, plan budgets and receive useful on-device alerts.">
 <meta name="theme-color" content="#06181b">
 <meta property="og:title" content="Artham">
 <meta property="og:description" content="Artham is a personal budgeting app for Android. See every account as one balance, record each rupee, schedule recurring transactions and keep every category inside its limit.">
@@ -441,7 +441,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       <a href="#local">Local-first</a>
       <a href="#roadmap">Roadmap</a>
     </nav>
-    <span class="pill glass"><span class="dot"></span>Android · coming soon</span>
+    <span class="pill glass"><span class="dot"></span>Android · v0.1.2 available</span>
   </header>
 
   <main id="top">
@@ -649,37 +649,37 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
     <section id="whatsnew" aria-labelledby="h-new">
       <div class="sec-head">
         <span class="eyebrow">From the changelog</span>
-        <h2 id="h-new">What’s new in the next build.</h2>
-        <p class="sec-sub">Everything below is listed as Unreleased in the project changelog. Version and build numbers are added once a release is confirmed.</p>
+        <h2 id="h-new">What’s new in Artham v0.1.2.</h2>
+        <p class="sec-sub">Released 17 November 2026. These features are included in the latest Android beta.</p>
       </div>
       <div class="cl">
         <div class="col add glass" data-glow>
           <h3><span class="badge">Added</span></h3>
           <ul>
-            <li>Recurring schedules for income and expenses</li>
-            <li>Daily, weekly, monthly and yearly frequencies</li>
-            <li>Custom intervals with a scrollable number picker</li>
-            <li>Start dates and optional end dates</li>
-            <li>A Recurring Transactions screen, reached from Activity</li>
-            <li>Pause, resume and delete for every schedule</li>
-            <li>Review and confirmation of due schedules</li>
-            <li>Recurring entries in Activity history, with a source marker</li>
+            <li>Shared expense splitting and person-by-person ledgers</li>
+            <li>Equal, custom-amount and percentage-based splits</li>
+            <li>Repayment and settlement tracking</li>
+            <li>Optional transaction tags (up to eight per transaction)</li>
+            <li>Dark and Light appearance settings</li>
+            <li>An in-app Alerts centre with unread counts and read controls</li>
+            <li>On-device reminders for budgets, recurring payments, backups and monthly summaries</li>
+            <li>Redesigned Add Transaction flow and frosted-glass category picker</li>
           </ul>
         </div>
         <div class="col chg glass" data-glow>
           <h3><span class="badge">Changed</span></h3>
           <ul>
-            <li>Database schema upgraded to version 2</li>
-            <li>New RecurringSchedules table, with its migration</li>
-            <li>Activity has a shortcut to Recurring Transactions</li>
-            <li>Project documentation covers recurring transactions</li>
+            <li>Shared-money accounting keeps lending and repayments out of income, expenses and budgets</li>
+            <li>Local shared-money ledger and local alert storage</li>
+            <li>Theme-aware screens, components and chart styling</li>
+            <li>Improved interactions, animation and usability across new flows</li>
           </ul>
         </div>
         <div class="col fix glass" data-glow>
           <h3><span class="badge">Fixed</span></h3>
           <ul>
-            <li>No more duplicate transactions for the same schedule occurrence</li>
-            <li>Existing transaction records are preserved through the schema migration</li>
+            <li>Prevents duplicate transaction tags and preserves the existing database structure</li>
+            <li>Keeps shared-money calculations separate from ordinary spending and income metrics</li>
           </ul>
         </div>
       </div>
@@ -697,13 +697,13 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <h2 id="h-road">Where Artham is going.</h2>
       </div>
       <div class="road">
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17h12l-1.5-2v-4a4.5 4.5 0 0 0-9 0v4L6 17zM10 20a2 2 0 0 0 4 0"/></svg></div><h3>Budget alerts, rollover and projections</h3><p>Alerts when budgets need attention, rollover of unused amounts and a look at where the month is heading.</p><span class="tagp">Planned</span></div>
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H9l-4 3v-3H4z"/></svg></div><h3>SMS transaction import</h3><p>Bring transactions in from bank messages instead of typing them.</p><span class="tagp">Planned</span></div>
+        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5"/></svg></div><h3>Bank statement import</h3><p>Bring transaction history in from a bank statement.</p><span class="tagp">Planned</span></div>
+        
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5"/></svg></div><h3>Bank statement import</h3><p>Load transactions straight from a statement.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><h3>Database encryption</h3><p>Extra protection for the on-device database, with further security work.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div><h3>Expanded Settings</h3><p>More options in the Settings screen.</p><span class="tagp">Planned</span></div>
         <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg></div><h3>Faster everywhere</h3><p>Further performance improvements across the app.</p><span class="tagp">Planned</span></div>
-        <div class="rc glass" data-glow><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></svg></div><h3>Recurring transactions</h3><p>Built and tested, arriving in the next build.</p><span class="tagp done">Next build</span></div>
+        
       </div>
     </section>
 
@@ -717,11 +717,11 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
     </section>
 
     <section class="soon glass" aria-labelledby="h-soon">
-      <div class="phone"><img src="img/settings.webp" width="640" height="1422" alt="Artham Settings screen reading Coming soon to Artham"></div>
+      <div class="phone"><img src="img/settings.webp" width="640" height="1422" alt="Artham Artham Settings screen preview"></div>
       <div class="soon-copy">
         <span class="eyebrow">What’s next</span>
-        <h2 id="h-soon">Settings are on the way.</h2>
-        <p>The Settings screen is a placeholder today, with expanded options planned. Artham is built for Android and still in active development. A download link will appear here when it is ready.</p>
+        <h2 id="h-soon">Settings are here, with more control.</h2>
+        <p>Choose Dark or Light appearance, manage notification preferences and organise your transactions with custom tags. Download the latest Android beta below.</p>
         <span class="pill glass"><span class="dot"></span>Android · coming soon</span>
       </div>
     </section>
