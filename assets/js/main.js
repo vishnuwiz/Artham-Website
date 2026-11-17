@@ -264,6 +264,22 @@
     sharedObserver.observe(sharedSpotlight);
   }
 
+
+  // Subtle pointer-following light on the shared-money illustration and privacy artwork.
+  if (finePointer && !reducedMotion) {
+    document.querySelectorAll('.shared-visual, .privacy-art').forEach(function (art) {
+      art.addEventListener('pointermove', function (event) {
+        var rect = art.getBoundingClientRect();
+        art.style.setProperty('--art-x', ((event.clientX - rect.left) / Math.max(rect.width, 1) * 100).toFixed(1) + '%');
+        art.style.setProperty('--art-y', ((event.clientY - rect.top) / Math.max(rect.height, 1) * 100).toFixed(1) + '%');
+      });
+      art.addEventListener('pointerleave', function () {
+        art.style.removeProperty('--art-x');
+        art.style.removeProperty('--art-y');
+      });
+    });
+  }
+
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
