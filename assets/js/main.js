@@ -250,6 +250,20 @@
     });
   }
 
+  // Keep the Shared Money illustration motion tied to its section entering view.
+  var sharedSpotlight = document.querySelector('.shared-spotlight');
+  if (sharedSpotlight && !reducedMotion && 'IntersectionObserver' in window) {
+    var sharedObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          sharedSpotlight.classList.add('is-active');
+          sharedObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.25 });
+    sharedObserver.observe(sharedSpotlight);
+  }
+
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
