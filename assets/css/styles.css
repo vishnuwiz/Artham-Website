@@ -216,3 +216,133 @@ html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{transition:
 [data-theme="light"] .download-panel{background:linear-gradient(110deg,#6a45c9,#4b3590 58%,#3b2a73);border-color:rgba(190,165,255,.4)}
 [data-theme="light"] .download-copy p{color:#e1d8f5}
 [data-theme="light"] .download-panel .button-download{color:#261b49}
+
+
+/* ------------------------------------------------------------------
+   Hybrid redesign refinement — premium fintech + soft glass + editorial
+   Balanced motion; preserves the existing Artham palette and typography.
+------------------------------------------------------------------- */
+:root{
+  --glass-surface:rgba(255,255,255,.055);
+  --glass-edge:rgba(226,215,255,.19);
+  --motion-ease:cubic-bezier(.2,.75,.2,1);
+}
+.site-header{
+  transition:background .3s ease,border-color .3s ease,box-shadow .3s ease;
+}
+.site-header.is-stuck{
+  background:rgba(23,19,41,.76);
+  -webkit-backdrop-filter:blur(20px) saturate(145%);
+  backdrop-filter:blur(20px) saturate(145%);
+  border-bottom-color:rgba(226,215,255,.13);
+  box-shadow:0 12px 35px rgba(0,0,0,.12);
+}
+.hero{position:relative}
+.hero-copy{max-width:590px}
+.hero-kicker{letter-spacing:.17em}
+.hero h1{max-width:10ch}
+.hero-art::before{
+  content:"";position:absolute;inset:7% 4%;z-index:-2;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(166,135,239,.17),rgba(124,221,187,.055) 48%,transparent 72%);
+  filter:blur(18px);animation:ambient-breathe 12s ease-in-out infinite alternate;
+}
+@keyframes ambient-breathe{from{transform:scale(.94);opacity:.72}to{transform:scale(1.08);opacity:1}}
+.hero-phone{transition:box-shadow .35s ease,filter .35s ease}
+.hero-phone img{display:block}
+.phone-main{animation:phone-drift 6.5s ease-in-out infinite}
+.phone-left{animation:phone-drift-left 7.5s ease-in-out -1.8s infinite}
+.phone-right{animation:phone-drift-right 8s ease-in-out -3s infinite}
+@keyframes phone-drift{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes phone-drift-left{0%,100%{translate:0 0}50%{translate:0 7px}}
+@keyframes phone-drift-right{0%,100%{translate:0 0}50%{translate:0 -6px}}
+.product-card,.update-card,.feature-item,.download-panel{
+  position:relative;isolation:isolate;
+}
+.product-card::after,.update-card::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;
+  background:radial-gradient(260px circle at var(--spot-x,50%) var(--spot-y,50%),rgba(190,165,255,.13),transparent 70%);
+  transition:opacity .3s ease;z-index:-1;
+}
+.product-card:hover::after,.update-card:hover::after{opacity:1}
+.product-card{transform:translateY(0);transition:transform .32s var(--motion-ease),border-color .3s ease,background .3s ease}
+.product-card:hover{transform:translateY(-6px)}
+.feature-item{padding:9px;border-radius:18px;margin:-9px;transition:background .25s ease,transform .25s ease}
+.feature-item:hover{background:rgba(255,255,255,.035);transform:translateX(3px)}
+.feature-glyph{transition:transform .3s var(--motion-ease),box-shadow .3s ease}
+.feature-item:hover .feature-glyph{transform:translateY(-3px) rotate(-5deg);box-shadow:0 9px 20px rgba(150,119,230,.13)}
+.privacy-art{isolation:isolate}
+.shield-card{animation:shield-float 6s ease-in-out infinite}
+@keyframes shield-float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.download-panel{overflow:hidden}
+.download-brand{transition:transform .35s var(--motion-ease),box-shadow .35s ease}
+.download-panel:hover .download-brand{transform:translateY(-3px) rotate(-3deg);box-shadow:0 15px 35px rgba(151,120,230,.16)}
+.button-primary,.button-download{transform:translate(var(--button-x,0),var(--button-y,0));transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+.button-primary:hover,.button-download:hover{box-shadow:0 18px 40px rgba(151,120,230,.34)}
+.shared-spotlight{
+  display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  align-items:center;gap:clamp(35px,7vw,90px);
+  margin:26px 0 30px;padding:clamp(28px,5vw,62px);
+  border:1px solid rgba(197,174,255,.2);border-radius:34px;
+  background:linear-gradient(125deg,rgba(113,84,177,.22),rgba(255,255,255,.035) 68%);
+  box-shadow:var(--shadow);overflow:hidden;position:relative;isolation:isolate;
+}
+.shared-spotlight::before{
+  content:"";position:absolute;width:430px;height:430px;border-radius:50%;right:-160px;top:-230px;z-index:-1;
+  background:radial-gradient(circle,rgba(124,221,187,.12),transparent 68%);filter:blur(12px);
+}
+.shared-copy h2{font-family:var(--display);font-size:clamp(2.35rem,4.6vw,3.55rem);line-height:1.04;letter-spacing:-.045em;margin:15px 0}
+.shared-copy h2 span{color:#c6afff}
+.shared-copy>p{color:var(--muted);max-width:440px;line-height:1.75;margin-bottom:20px}
+.shared-points{list-style:none;margin:0 0 25px;padding:0;display:grid;gap:11px;color:#ddd5ed;font-size:.9rem}
+.shared-points li{display:flex;align-items:center;gap:10px}
+.shared-points li span{display:grid;place-items:center;width:21px;height:21px;flex:none;border-radius:50%;background:rgba(124,221,187,.13);color:var(--mint);font-size:.75rem;font-weight:800}
+.shared-visual{min-height:390px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+.shared-orbit{position:absolute;width:340px;height:340px;border:1px solid rgba(197,174,255,.15);border-radius:50%;box-shadow:0 0 90px rgba(142,110,222,.12),inset 0 0 70px rgba(142,110,222,.06)}
+.glass-card{background:rgba(42,34,68,.76);border:1px solid rgba(226,215,255,.19);box-shadow:0 18px 40px rgba(0,0,0,.17),inset 0 1px 0 rgba(255,255,255,.08);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.shared-total{position:relative;z-index:2;min-width:210px;padding:19px 28px;border-radius:22px;text-align:center;animation:shared-pop .7s var(--motion-ease) both}
+.shared-label{display:block;color:#b9a9dc;font-size:.65rem;font-weight:800;letter-spacing:.15em}
+.shared-total>strong{display:block;font-family:var(--display);font-size:2.3rem;letter-spacing:-.04em;margin:3px 0}
+.shared-caption{font-size:.75rem;color:var(--muted)}
+.shared-connector{height:38px;width:62%;display:flex;justify-content:space-around;position:relative}
+.shared-connector::before{content:"";position:absolute;top:0;left:25%;right:25%;height:100%;border-left:1px solid rgba(182,154,248,.35);border-right:1px solid rgba(124,221,187,.35)}
+.shared-connector span{width:7px;height:7px;border-radius:50%;background:var(--purple);margin-top:15px;box-shadow:0 0 14px rgba(182,154,248,.55)}
+.shared-connector span+span{background:var(--mint);box-shadow:0 0 14px rgba(124,221,187,.45)}
+.shared-people{width:min(100%,430px);display:grid;gap:11px;position:relative;z-index:2}
+.shared-person{display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:17px;animation:shared-pop .7s var(--motion-ease) both}
+.shared-person:nth-child(2){animation-delay:120ms}
+.person-avatar{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;font-weight:800;font-family:var(--display)}
+.avatar-one{background:rgba(182,154,248,.2);color:#d5c3ff}
+.avatar-two{background:rgba(124,221,187,.17);color:#8ce4c5}
+.person-copy{display:grid;line-height:1.25;flex:1}
+.person-copy strong{font-size:.85rem}
+.person-copy small{font-size:.68rem;color:var(--muted);margin-top:3px}
+.person-amount{font-family:var(--display);font-size:1rem;letter-spacing:-.02em}
+.shared-settled{position:relative;z-index:2;margin-top:17px;padding:8px 14px;border-radius:999px;background:rgba(124,221,187,.1);border:1px solid rgba(124,221,187,.18);color:#a1e8cf;font-size:.73rem;font-weight:700}
+.shared-settled span{margin-right:5px}
+@keyframes shared-pop{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.site-footer{row-gap:20px}
+.footer-links a,.release-link,.text-link{transition:color .2s ease,opacity .2s ease}
+@media(max-width:900px){
+  .shared-spotlight{grid-template-columns:1fr;gap:20px}
+  .shared-copy{max-width:650px}
+  .shared-visual{min-height:370px}
+}
+@media(max-width:560px){
+  .shared-spotlight{padding:26px 20px;border-radius:27px;margin-top:10px}
+  .shared-visual{min-height:330px}
+  .shared-orbit{width:285px;height:285px}
+  .shared-total{min-width:185px;padding:15px 22px}
+  .shared-total>strong{font-size:2rem}
+  .shared-person{padding:11px 12px;gap:9px}
+  .person-amount{font-size:.9rem}
+  .hero{padding-top:48px}
+  .hero-art{min-height:420px}
+  .floating-note{padding:9px 11px}
+  .floating-note strong{font-size:.72rem}
+  .note-balance{left:0;bottom:56px}
+  .note-privacy{right:0;bottom:22px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-art::before,.phone-main,.phone-left,.phone-right,.shield-card,.shared-total,.shared-person{animation:none!important}
+  .product-card,.feature-item,.feature-glyph,.download-brand,.button-primary,.button-download{transition:none!important}
+}
