@@ -29,6 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css?v=20261114-theme">
+  <link rel="stylesheet" href="assets/css/motion.css?v=20261119">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -112,6 +113,23 @@
             <div class="product-visual"><img src="img/budgets.webp" alt="Artham Budgets screen preview" loading="lazy"></div>
             <div class="product-caption"><span class="product-icon icon-budgets">◎</span><div><h3>Budgets</h3><p>Set monthly limits and plan with confidence.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
           </article>
+        </div>
+        <div class="tour" data-tour data-active="0">
+          <div class="tour-stage" aria-hidden="true">
+            <div class="tour-glow"></div>
+            <div class="tour-phone">
+              <img class="is-active" src="img/home.webp" alt="" loading="lazy">
+              <img src="img/activity.webp" alt="" loading="lazy">
+              <img src="img/insights.webp" alt="" loading="lazy">
+              <img src="img/budgets.webp" alt="" loading="lazy">
+            </div>
+          </div>
+          <div class="tour-steps">
+            <article class="tour-step is-active"><h3>Home</h3><p>Your accounts and balances, at a glance.</p></article>
+            <article class="tour-step"><h3>Activity</h3><p>Every transaction, easy to search and review.</p></article>
+            <article class="tour-step"><h3>Insights</h3><p>Understand patterns across categories and time.</p></article>
+            <article class="tour-step"><h3>Budgets</h3><p>Set monthly limits and plan with confidence.</p></article>
+          </div>
         </div>
       </section>
 
@@ -228,5 +246,6 @@
     <p class="lightbox-caption"></p>
   </div>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/motion.js" defer></script>
 </body>
 </html>

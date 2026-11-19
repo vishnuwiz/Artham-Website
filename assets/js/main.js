@@ -87,8 +87,23 @@
   if (themeButton) {
     themeButton.addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      applyTheme(next, true);
       try { localStorage.setItem('artham-theme', next); } catch (e) {}
+      if (document.startViewTransition && !reducedMotion) {
+        // The new theme grows as a circle from the toggle.
+        var box = themeButton.getBoundingClientRect();
+        var x = box.left + box.width / 2;
+        var y = box.top + box.height / 2;
+        var radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+        var transition = document.startViewTransition(function () { applyTheme(next, false); });
+        transition.ready.then(function () {
+          root.animate(
+            { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)'] },
+            { duration: 650, easing: 'cubic-bezier(.2,.75,.2,1)', pseudoElement: '::view-transition-new(root)' }
+          );
+        }).catch(function () {});
+      } else {
+        applyTheme(next, true);
+      }
     });
   }
 

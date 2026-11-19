@@ -26,7 +26,9 @@ index.html
 404.html
 assets/
   css/styles.css
+  css/motion.css
   js/main.js
+  js/motion.js
 img/
   app screenshots, icons and social preview
 ```
