@@ -123,7 +123,7 @@
   var backTop = document.createElement('button');
   backTop.className = 'back-top';
   backTop.type = 'button';
-  backTop.textContent = '↑';
+  backTop.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></svg>';
   backTop.setAttribute('aria-label', 'Back to top');
   backTop.title = 'Back to top';
   document.body.appendChild(backTop);

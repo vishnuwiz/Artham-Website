@@ -48,3 +48,17 @@
   .cursor-orb,.confetti{display:none}
   ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
 }
+
+/* Icons are inline SVG, never text glyphs (iOS draws some glyphs as colour emoji) */
+.note-icon svg,.product-icon svg,.feature-glyph svg,.update-icon svg,.privacy-point-icon svg,.android-mark svg,.card-arrow svg,.back-top svg{display:block;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.note-icon svg,.privacy-point-icon svg{width:18px;height:18px}
+.product-icon svg,.feature-glyph svg,.update-icon svg{width:22px;height:22px}
+.android-mark svg{width:12px;height:12px}
+.card-arrow svg{width:16px;height:16px}
+.back-top{display:grid;place-items:center}
+.back-top svg{width:20px;height:20px}
+svg .fill{fill:currentColor;stroke:none}
+.arr{display:inline-flex;vertical-align:-.12em}
+.arr svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.privacy-spark svg{display:block;width:1em;height:1em;fill:currentColor}
+.spark-two svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}
